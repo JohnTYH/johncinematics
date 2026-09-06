@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.DS_Store
+*.pem
+.env*
+!.env.example
+next-env.d.ts
+.vercel
+tsconfig.tsbuildinfo
+
+# Photo masters. Full-res originals live here and are NEVER deployed —
+# scripts/optimize-images.mjs turns them into public/work/, which IS
+# committed so builds don't depend on the originals being present.
+assets/

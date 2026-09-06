@@ -1,0 +1,345 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Design tokens — dark cinematic
+   These six values drive the whole site.
+   --------------------------------------------------------------- */
+@theme {
+  /* Charcoal, not black. A touch of blue in the base keeps skin tones
+     and warm grades looking correct against it; the ember accent
+     supplies the warmth. */
+  --color-ink: #191920;        /* page base            */
+  --color-ink-2: #212129;      /* raised surface       */
+  --color-ink-3: #33333e;      /* hairlines / borders  */
+  --color-bone: #f6f5f2;       /* primary text         */
+  --color-ash: #9a9aa6;        /* secondary text       */
+  --color-ember: #e8b04b;      /* accent               */
+
+  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------------
+   Everything below lives in a cascade layer ON PURPOSE.
+   Unlayered CSS beats *any* layered CSS regardless of specificity,
+   so a bare `.glass { position: relative }` would silently override
+   a `absolute` utility on the same element. Keeping these in
+   `components` puts Tailwind's `utilities` layer above them, which
+   is what you expect when you add a utility to a .glass element.
+   --------------------------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-ink);
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-ember);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  /* Display type: compressed, heavy, tight — the air.inc signature. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    /* Anton's cap height nearly fills the em box, so anything under
+       ~0.92 makes wrapped lines collide. Single-line headings override
+       this with a `leading-*` utility. */
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  /* Film grain — fixed so it sits still while content scrolls under it */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    animation: grain-shift 700ms steps(2) infinite;
+  }
+
+  /* Scroll reveal — driven by IntersectionObserver in <Reveal />.
+
+     The hidden state is gated behind `scripting: enabled` so that with
+     JS off the content is simply visible rather than stuck at opacity 0
+     forever. Doing it in CSS rather than with a class set by an inline
+     script keeps the server and client markup identical, so there is no
+     hydration mismatch. Browsers without `scripting` support fail to
+     match and render the content visible — the safe direction. */
+  @media (scripting: enabled) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 900ms var(--ease-out-expo),
+        transform 900ms var(--ease-out-expo);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal[data-shown="true"] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Marquee band */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration, 40s) linear infinite;
+  }
+
+  .marquee-track[data-direction="right"] {
+    animation-direction: reverse;
+  }
+
+  /* Hero frame — dissolves into the page rather than sitting in a box.
+     On mobile it bleeds up from the bottom; from md it fades in from the
+     left so the wordmark sits on clean charcoal. Kept as one element with
+     a media query rather than two hidden divs, so the browser only ever
+     fetches the image once. */
+  .hero-fade {
+    -webkit-mask-image: linear-gradient(
+      to top,
+      black 46%,
+      rgba(0, 0, 0, 0.55) 78%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to top,
+      black 46%,
+      rgba(0, 0, 0, 0.55) 78%,
+      transparent 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .hero-fade {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        /* The frame starts at 36% of the viewport and is 64% wide, so a
+           stop at 22% lands full opacity at roughly the halfway mark —
+           left of where the fade used to finish, without moving the
+           photograph itself. */
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 10%,
+        black 22%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 10%,
+        black 22%
+      );
+    }
+  }
+
+  /* -------------------------------------------------------------
+     Liquid glass
+     -------------------------------------------------------------
+     backdrop-filter samples what is painted BEHIND the element, so a
+     glass panel over flat charcoal looks like a grey rectangle. Every
+     .glass surface on this site sits over an <Aurora /> field — that
+     colour is what the blur is actually for.
+     ------------------------------------------------------------- */
+  .glass {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(
+      158deg,
+      rgba(255, 255, 255, 0.085) 0%,
+      rgba(255, 255, 255, 0.035) 44%,
+      rgba(255, 255, 255, 0.018) 100%
+    );
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow:
+      /* catch-light along the top edge — the tell that sells glass */
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
+      /* light bouncing off whatever is under the panel */
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.05),
+      0 24px 60px -22px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Specular sweep across the top-left corner */
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      90% 60% at 12% 0%,
+      rgba(255, 255, 255, 0.13) 0%,
+      transparent 58%
+    );
+  }
+
+  /* -------------------------------------------------------------
+     Animated edge
+     -------------------------------------------------------------
+     The technique air.inc uses: an oversized square carrying a conic
+     gradient spins behind the card, and the card's own content covers
+     all but a 1px ring of it. 178% is the magic number — a square that
+     size still covers the box's corners at every rotation angle, so the
+     ring never breaks.
+
+     Two bright points sit 180deg apart (one ember, one bone) with a
+     faint hairline between them, so the border reads as a static edge
+     with two lights travelling around it.
+     ------------------------------------------------------------- */
+  .edge {
+    --edge-dim: rgba(255, 255, 255, 0.07);
+    --edge-warm: rgba(232, 176, 75, 0.75);
+    --edge-bright: rgba(246, 245, 242, 0.95);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 1px; /* this is the ring thickness */
+  }
+
+  /* Content sits above the gradient and is what masks its middle.
+     No inner panel needed: the artwork is opaque and fills the card. */
+  .edge > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .edge::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    min-width: 178%;
+    min-height: 178%;
+    aspect-ratio: 1 / 1;
+    /* `translate` and `rotate` are their own properties, separate from
+       `transform` — so the keyframe can spin the square without
+       clobbering the centring. */
+    translate: -50% -50%;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      var(--edge-warm) 0deg,
+      var(--edge-dim) 22deg,
+      var(--edge-dim) 120deg,
+      var(--edge-bright) 180deg,
+      var(--edge-dim) 238deg,
+      var(--edge-dim) 338deg,
+      var(--edge-warm) 360deg
+    );
+    animation: edge-spin var(--edge-duration, 12s) linear infinite;
+    animation-delay: var(--edge-delay, 0s);
+    transition: filter 600ms var(--ease-out-expo);
+  }
+
+  /* Brighten rather than speed up — changing animation-duration
+     mid-cycle makes the beam jump. */
+  .edge:hover::before,
+  .edge:focus-visible::before {
+    filter: brightness(1.7) saturate(1.2);
+  }
+
+  .glass-hover {
+    transition:
+      background 600ms var(--ease-out-expo),
+      border-color 600ms var(--ease-out-expo),
+      transform 600ms var(--ease-out-expo),
+      box-shadow 600ms var(--ease-out-expo);
+  }
+
+  .glass-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.16);
+    background: linear-gradient(
+      158deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.05) 44%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.06),
+      0 32px 70px -24px rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Keyframes — not layered; @keyframes are unaffected by the cascade.
+   --------------------------------------------------------------- */
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-2%, 1%); }
+  100% { transform: translate(1%, -1%); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  50%      { transform: translate(-50%, -4%) scale(1.08); }
+}
+
+@keyframes edge-spin {
+  to { rotate: 1turn; }
+}
+
+@keyframes aurora-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(6%, -8%) scale(1.15); }
+}
+
+@keyframes aurora-b {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  50%      { transform: translate(-8%, 6%) scale(1); }
+}
+
+/* ---------------------------------------------------------------
+   Reduced motion — deliberately UNLAYERED so it outranks both the
+   component rules above and any animation utility in markup.
+   This is the one place where beating the utilities layer is correct.
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .marquee-track,
+  .grain::after,
+  .edge::before {
+    animation: none;
+  }
+
+  .glass-hover:hover {
+    transform: none;
+  }
+}
