@@ -1,32 +1,35 @@
 /**
- * assets/<category>/*.jpg  →  public/work/<category>/*.jpg
+ * assets/<collection>/**  →  public/work/<collection>/**
  *
  * Masters stay in assets/ (git-ignored, never deployed). This writes the
- * web-sized derivatives Next actually serves from, plus a generated manifest
+ * web-sized derivatives the site actually serves, plus a generated manifest
  * carrying each image's dimensions and a blur placeholder.
  *
  *   node scripts/optimize-images.mjs
  *
- * Re-run it whenever you drop new photos into assets/. It's idempotent.
+ * Emits one WebP per width in WIDTHS. GitHub Pages serves static files with
+ * no image optimizer, so the responsive variants have to exist on disk —
+ * lib/image-loader.ts points next/image at them, which keeps real srcsets
+ * rather than shipping one large file to every device.
+ *
+ * public/work is fully derived, so it's wiped and rebuilt each run.
  */
 import sharp from "sharp";
-import { readdir, mkdir, writeFile, stat } from "node:fs/promises";
+import { readdir, mkdir, writeFile, stat, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
 const SRC = "assets";
 const OUT = path.join("public", "work");
 
-/* The widest slot renders at 890px CSS; 2560 covers that at 3x DPR with
-   room to spare. Anything beyond is pixels no device will ever ask for. */
-const MAX_EDGE = 2560;
-const QUALITY = 88;
+/* The widest slot renders at 890px CSS, so 1920 covers it at 2x. These must
+   match `deviceSizes` in next.config.mjs — the loader is only ever asked for
+   widths Next knows about. */
+const WIDTHS = [480, 960, 1440, 1920];
+const QUALITY = 80;
 
 const isImage = (f) => /\.(jpe?g|png|webp|tiff?)$/i.test(f);
 
-/* Walks nested folders, so assets/events/corporate maps to
-   public/work/events/corporate. Collections that need subsections just
-   nest a directory. */
 async function collectDirs(dir, base = "") {
   const entries = await readdir(dir, { withFileTypes: true });
   const here = entries.some((e) => e.isFile() && isImage(e.name)) ? [base] : [];
@@ -38,8 +41,9 @@ async function collectDirs(dir, base = "") {
   return [...here, ...nested.flat()];
 }
 
-const categories = (await collectDirs(SRC)).filter(Boolean);
+if (existsSync(OUT)) await rm(OUT, { recursive: true });
 
+const categories = (await collectDirs(SRC)).filter(Boolean);
 const manifest = {};
 let bytesIn = 0;
 let bytesOut = 0;
@@ -47,53 +51,48 @@ let bytesOut = 0;
 for (const category of categories) {
   const inDir = path.join(SRC, category);
   const outDir = path.join(OUT, category);
-  if (!existsSync(outDir)) await mkdir(outDir, { recursive: true });
+  await mkdir(outDir, { recursive: true });
 
-  const files = (await readdir(inDir)).filter(isImage).sort();
-
-  for (const file of files) {
+  for (const file of (await readdir(inDir)).filter(isImage).sort()) {
     const from = path.join(inDir, file);
-    const name = `${path.parse(file).name}.jpg`;
-    const to = path.join(outDir, name);
-    const src = `/work/${category}/${name}`;
+    const name = path.parse(file).name;
+    /* The manifest key stays a .jpg path so content.ts reads naturally; the
+       loader swaps in the width and the .webp extension at request time. */
+    const key = `/work/${category}/${name}.jpg`;
 
-    const pipeline = sharp(from)
-      .rotate() // bake in EXIF orientation before we strip metadata
-      .resize({
-        width: MAX_EDGE,
-        height: MAX_EDGE,
-        fit: "inside",
-        withoutEnlargement: true,
-      })
-      .toColourspace("srgb");
+    const meta = await sharp(from).rotate().metadata();
+    const widths = WIDTHS.filter((w) => w <= meta.width);
+    if (widths.length === 0) widths.push(meta.width);
 
-    // Metadata is stripped by default — that drops GPS coordinates, which
-    // for wedding work means venue and home addresses.
-    const { width, height } = await pipeline
-      .jpeg({ quality: QUALITY, mozjpeg: true })
-      .toFile(to);
+    for (const w of widths) {
+      const to = path.join(outDir, `${name}-${w}.webp`);
+      // Metadata is stripped by default — that drops GPS, which for wedding
+      // work means venue and home addresses.
+      await sharp(from)
+        .rotate()
+        .resize({ width: w, withoutEnlargement: true })
+        .toColourspace("srgb")
+        .webp({ quality: QUALITY })
+        .toFile(to);
+      bytesOut += (await stat(to)).size;
+    }
 
-    // 16px-wide WebP, inlined as a data URI for the blur-up placeholder
-    const blur = await sharp(from)
-      .rotate()
-      .resize(16)
-      .webp({ quality: 45 })
-      .toBuffer();
+    const largest = await sharp(
+      path.join(outDir, `${name}-${widths[widths.length - 1]}.webp`),
+    ).metadata();
 
-    manifest[src] = {
-      src,
-      width,
-      height,
+    const blur = await sharp(from).rotate().resize(16).webp({ quality: 45 }).toBuffer();
+
+    manifest[key] = {
+      src: key,
+      width: largest.width,
+      height: largest.height,
+      widths,
       blurDataURL: `data:image/webp;base64,${blur.toString("base64")}`,
     };
 
     bytesIn += (await stat(from)).size;
-    bytesOut += (await stat(to)).size;
-    console.log(
-      `${category}/${file}  →  ${width}x${height}  ${(
-        (await stat(to)).size / 1e6
-      ).toFixed(2)}MB`,
-    );
+    console.log(`${category}/${file}  →  ${widths.join(", ")}`);
   }
 }
 
@@ -102,6 +101,8 @@ const type = `export type GeneratedImage = {
   src: string;
   width: number;
   height: number;
+  /** Widths actually written to disk, ascending. */
+  widths: number[];
   blurDataURL: string;
 };\n\n`;
 await writeFile(
@@ -114,10 +115,7 @@ await writeFile(
 );
 
 console.log(
-  `\n${Object.keys(manifest).length} images  ${(bytesIn / 1e6).toFixed(
-    0,
-  )}MB → ${(bytesOut / 1e6).toFixed(1)}MB  (${(
-    100 -
-    (bytesOut / bytesIn) * 100
-  ).toFixed(1)}% smaller)`,
+  `\n${Object.keys(manifest).length} images × ${WIDTHS.length} widths  ${(
+    bytesIn / 1e6
+  ).toFixed(0)}MB → ${(bytesOut / 1e6).toFixed(1)}MB`,
 );
