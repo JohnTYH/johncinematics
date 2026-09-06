@@ -29,6 +29,16 @@ export default function VideoEmbed({
     `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`,
   );
 
+  const hq = `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`;
+
+  /* When a video has no maxres frame, YouTube doesn't fail the request — it
+     answers 404 with a decodable 40x30 grey placeholder. The browser calls
+     that a successful load, so onError alone never catches it. Checking the
+     decoded width is the only reliable signal. */
+  const fallBackIfPlaceholder = (img: HTMLImageElement) => {
+    if (img.naturalWidth > 0 && img.naturalWidth <= 120) setPoster(hq);
+  };
+
   const ratio = orientation === "vertical" ? "aspect-[9/16]" : "aspect-video";
 
   return (
@@ -56,11 +66,8 @@ export default function VideoEmbed({
               alt=""
               fill
               sizes={sizes}
-              onError={() =>
-                setPoster(
-                  `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`,
-                )
-              }
+              onError={() => setPoster(hq)}
+              onLoad={(e) => fallBackIfPlaceholder(e.currentTarget)}
               className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
             />
 

@@ -51,6 +51,8 @@ export type Video = {
 export type VideoGroup = {
   title: string;
   blurb?: string;
+  /** Text for the jump link pointing at this group. Defaults to `title`. */
+  jumpLabel?: string;
   /** 9:16 for reels, 16:9 for everything else. */
   orientation?: "landscape" | "vertical";
   /** Built for later — set false (or delete) to publish the group. */
@@ -64,6 +66,8 @@ export type VideoGroup = {
 export type PhotoGroup = {
   title: string;
   blurb?: string;
+  /** Text for the jump link pointing at this group. Defaults to `title`. */
+  jumpLabel?: string;
   images: WorkItem[];
 };
 
@@ -429,6 +433,7 @@ export const collections: Collection[] = [
       },
       {
         title: "Personal",
+        jumpLabel: "Personal events",
         blurb: "Birthdays, family gatherings and private parties.",
         images: [
         {
@@ -511,6 +516,30 @@ export const collections: Collection[] = [
             id: "jonathan-rachelle",
             title: "Jonathan & Rachelle",
             videoId: "pW6fLu5VAV4",
+          },
+        ],
+      },
+      {
+        title: "Special Projects",
+        blurb: "Campus films and commissioned work.",
+        videos: [
+          {
+            id: "halls-of-nus",
+            title: "Halls of NUS",
+            note: "NUS Office of Student Affairs",
+            videoId: "uA4wQ5DVha0",
+          },
+          {
+            id: "nus-forever",
+            title: "NUS Forever",
+            note: "Student Life theme song",
+            videoId: "8nIj_-Uo2YE",
+          },
+          {
+            id: "raffles-hall-open-day",
+            title: "Raffles Hall Open Day 2022",
+            note: "Raffles Hall Media",
+            videoId: "PYTzJEJXa1E",
           },
         ],
       },

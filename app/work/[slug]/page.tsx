@@ -4,14 +4,13 @@ import { notFound } from "next/navigation";
 import Aurora from "@/components/Aurora";
 import Photo from "@/components/Photo";
 import PhotoGrid from "@/components/PhotoGrid";
+import GroupHeader, { slugify } from "@/components/GroupHeader";
 import VideoEmbed from "@/components/VideoEmbed";
 import Reveal from "@/components/Reveal";
 import CTA from "@/components/CTA";
 import { collections } from "@/lib/content";
 
 type Params = { params: Promise<{ slug: string }> };
-
-const slugify = (s: string) => s.toLowerCase().replace(/\s+/g, "-");
 
 export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
@@ -90,17 +89,17 @@ export default async function CollectionPage({ params }: Params) {
             const vertical = group.orientation === "vertical";
 
             return (
-              <section key={group.title} className={gi > 0 ? "mt-24" : ""}>
-                <Reveal className="mb-10 border-t border-ink-3 pt-8">
-                  <h2 className="display text-[9vw] leading-[0.92] text-bone md:text-[3vw]">
-                    {group.title}
-                  </h2>
-                  {group.blurb && (
-                    <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ash">
-                      {group.blurb}
-                    </p>
-                  )}
-                </Reveal>
+              <section
+                key={group.title}
+                id={slugify(group.title)}
+                /* Clears the fixed nav when jumped to */
+                className={`scroll-mt-28 ${gi > 0 ? "mt-24" : ""}`}
+              >
+                <GroupHeader
+                  title={group.title}
+                  blurb={group.blurb}
+                  next={groups[gi + 1]}
+                />
 
                 <div
                   className={`grid gap-6 ${
@@ -135,56 +134,21 @@ export default async function CollectionPage({ params }: Params) {
               (g) => g.images.length > 0,
             );
 
-            return shown.map((group, gi) => {
-              /* Each group links to the one after it, so a third subsection
-                 gets its own jump link with no extra wiring. The last group
-                 has nothing below it and shows none. */
-              const next = shown[gi + 1];
+            return shown.map((group, gi) => (
+              <section
+                key={group.title}
+                id={slugify(group.title)}
+                className={`scroll-mt-28 ${gi > 0 ? "mt-24" : ""}`}
+              >
+                <GroupHeader
+                  title={group.title}
+                  blurb={group.blurb}
+                  next={shown[gi + 1]}
+                />
 
-              return (
-                <section
-                  key={group.title}
-                  id={slugify(group.title)}
-                  /* Clears the fixed nav when jumped to */
-                  className={`scroll-mt-28 ${gi > 0 ? "mt-24" : ""}`}
-                >
-                  <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-6 border-t border-ink-3 pt-8">
-                    <div>
-                      <h2 className="display text-[9vw] leading-[0.92] text-bone md:text-[3vw]">
-                        {group.title}
-                      </h2>
-                      {group.blurb && (
-                        <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ash">
-                          {group.blurb}
-                        </p>
-                      )}
-                    </div>
-
-                    {next && (
-                      <a
-                        href={`#${slugify(next.title)}`}
-                        className="glass glass-hover group flex shrink-0 items-center gap-2.5 rounded-full px-5 py-3 text-[13px] uppercase tracking-[0.15em] text-bone"
-                      >
-                        {next.title} {collection.name.toLowerCase()}
-                        <svg
-                          viewBox="0 0 16 16"
-                          aria-hidden
-                          className="h-3.5 w-3.5 fill-none stroke-current stroke-[1.75] transition-transform duration-300 group-hover:translate-y-0.5"
-                        >
-                          <path
-                            d="M8 3v10M3.5 8.5 8 13l4.5-4.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </a>
-                    )}
-                  </Reveal>
-
-                  <PhotoGrid items={group.images} />
-                </section>
-              );
-            });
+                <PhotoGrid items={group.images} />
+              </section>
+            ));
           })()}
         </div>
       ) : (
