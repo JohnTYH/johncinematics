@@ -536,6 +536,18 @@ export const collections: Collection[] = [
             videoId: "8nIj_-Uo2YE",
           },
           {
+            id: "jam-n-hop-2022",
+            title: "Jam 'N' Hop 2022",
+            note: "NUS Business Pageant",
+            videoId: "6wzJuXKPvNw",
+          },
+          {
+            id: "jam-n-hop-2023",
+            title: "Jam 'N' Hop 2023",
+            note: "NUS Business Pageant",
+            videoId: "dQAhk1nciu0",
+          },
+          {
             id: "raffles-hall-open-day",
             title: "Raffles Hall Open Day 2022",
             note: "Raffles Hall Media",
