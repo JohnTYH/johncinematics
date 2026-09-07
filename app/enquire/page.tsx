@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Aurora from "@/components/Aurora";
 import EnquiryForm from "@/components/EnquiryForm";
 import Reveal from "@/components/Reveal";
+import { abs } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Enquire — John Cinematics",
+  title: "Enquire",
   description:
     "Tell me the date, the place and roughly what you have in mind, and I'll come back with a plan and a number.",
+  alternates: { canonical: abs("/enquire") },
 };
 
 export default function EnquirePage() {

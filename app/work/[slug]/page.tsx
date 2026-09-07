@@ -9,6 +9,9 @@ import VideoEmbed from "@/components/VideoEmbed";
 import Reveal from "@/components/Reveal";
 import CTA from "@/components/CTA";
 import { collections } from "@/lib/content";
+import JsonLd from "@/components/JsonLd";
+import { SITE_NAME, abs, absFile } from "@/lib/site";
+import { images } from "@/lib/generated-images";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -22,8 +25,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!collection) return {};
 
   return {
-    title: `${collection.name} — John Cinematics`,
+    /* The layout template appends the brand, so the title is just the name. */
+    title: collection.name,
     description: collection.blurb,
+    alternates: { canonical: abs(`/work/${slug}`) },
+    openGraph: {
+      title: `${collection.name} — ${SITE_NAME}`,
+      description: collection.blurb,
+      url: abs(`/work/${slug}`),
+      images: collection.images[0]?.src
+        ? [absFile(collection.images[0].src.replace(".jpg", "-1440.webp"))]
+        : undefined,
+    },
   };
 }
 
@@ -41,8 +54,35 @@ export default async function CollectionPage({ params }: Params) {
     (g) => !g.hidden && g.videos.length > 0,
   );
 
+  /* An ImageGallery listing the actual photographs, with their real
+     dimensions from the manifest. This is what lets image search and answer
+     engines treat the page as a body of work rather than a page that
+     happens to contain <img> tags. */
+  const gallery = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: `${collection.name} — ${SITE_NAME}`,
+    description: collection.blurb,
+    url: abs(`/work/${collection.slug}`),
+    author: { "@type": "ProfessionalService", name: SITE_NAME, url: abs("/") },
+    associatedMedia: collection.images
+      .filter((i) => i.src)
+      .slice(0, 25)
+      .map((i) => {
+        const g = images[i.src!];
+        return {
+          "@type": "ImageObject",
+          contentUrl: absFile(i.src!.replace(".jpg", "-1440.webp")),
+          ...(g ? { width: g.width, height: g.height } : {}),
+          caption: i.title ? `${i.title} — ${i.category}` : i.category,
+          creator: { "@type": "Person", name: "John Tan" },
+        };
+      }),
+  };
+
   return (
     <main>
+      <JsonLd data={gallery} />
       <section className="relative overflow-hidden">
         <Aurora intensity="low" />
 

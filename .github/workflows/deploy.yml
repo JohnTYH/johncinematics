@@ -35,6 +35,10 @@ jobs:
           # loader both need to know about it. Change this if you move to a
           # custom domain — it should be empty there.
           NEXT_PUBLIC_BASE_PATH: /johncinematics
+          # Absolute URLs for canonicals, sitemap and og:image. Change both
+          # of these together if you move to a custom domain — SITE_URL loses
+          # the /johncinematics suffix and BASE_PATH becomes empty.
+          NEXT_PUBLIC_SITE_URL: https://johntyh.github.io/johncinematics
 
       - uses: actions/configure-pages@v5
 

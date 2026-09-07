@@ -3,16 +3,32 @@ import Aurora from "@/components/Aurora";
 import About from "@/components/About";
 import Reveal from "@/components/Reveal";
 import CTA from "@/components/CTA";
+import JsonLd from "@/components/JsonLd";
+import { SITE_NAME, INSTAGRAM, abs } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About — John Cinematics",
+  title: "About",
   description:
     "Photography since 2018, videography since 2019, freelance since 2021. Weddings, corporate shoots and events across Singapore.",
+  alternates: { canonical: abs("/about") },
+};
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "John Tan",
+  jobTitle: "Photographer and videographer",
+  url: abs("/about"),
+  worksFor: { "@type": "ProfessionalService", name: SITE_NAME, url: abs("/") },
+  address: { "@type": "PostalAddress", addressCountry: "SG" },
+  sameAs: [INSTAGRAM],
 };
 
 export default function AboutPage() {
   return (
     <main>
+      <JsonLd data={person} />
+
       {/* This route has no hero, so the header carries the top padding
           that clears the fixed nav. */}
       <section className="relative overflow-hidden">
