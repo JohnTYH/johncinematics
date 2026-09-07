@@ -69,18 +69,18 @@ export default function Hero() {
         {/* Sized to fill the left column rather than the full viewport — the
             photo takes the right 54%, so the wordmark is scaled to what's
             actually left, not simply shrunk by a fixed amount. */}
-        <h1 className="w-fit select-none">
+        <h1 className="ml-auto w-fit select-none md:ml-0">
           <span className="sr-only">John Cinematics</span>
 
           <Reveal as="span" aria-hidden className="block">
-            <span className="display block text-right text-[30vw] leading-[0.8] text-bone md:text-[min(18vw,255px)]">
+            <span className="display block text-right text-[33vw] leading-[0.8] text-bone md:text-[min(18vw,255px)]">
               John
             </span>
           </Reveal>
 
           <Reveal as="span" aria-hidden className="block" delay={120}>
             <span
-              className="display block text-[17.6vw] leading-[0.9] text-transparent md:text-[min(11vw,156px)]"
+              className="display block text-[19.4vw] leading-[0.9] text-transparent md:text-[min(11vw,156px)]"
               style={{
                 WebkitTextStroke: "clamp(1px, 0.13vw, 2px) var(--color-bone)",
               }}
