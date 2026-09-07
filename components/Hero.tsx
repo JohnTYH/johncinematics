@@ -38,13 +38,12 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ink via-ink/70 to-transparent to-58% md:block"
       />
-      {/* Mobile has no "right half" to fade into, so the frame becomes a
-          full-bleed backdrop instead — heavily knocked back so it reads as
-          atmosphere behind the wordmark rather than an image competing with
-          it. */}
+      {/* Mobile: the frame is full-bleed, so the charcoal comes up from the
+          bottom instead of in from the side. It carries the wordmark, the
+          copy and the buttons, which all sit low on a narrow screen. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/50 md:hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[68%] bg-gradient-to-t from-ink via-ink/88 to-transparent md:hidden"
       />
 
       {/* The nav sits transparent over the hero, so a bright frame swallows

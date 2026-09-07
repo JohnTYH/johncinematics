@@ -620,10 +620,10 @@ export const portrait: WorkItem = {
 /* Dates from the rate card: photography 2018, videography 2019,
    full-time freelance 2021. */
 export const timeline = [
-  { year: "2018", label: "Picked up a camera", note: "An interest that turned into a habit." },
+  { year: "2018", label: "Picked up a camera", note: "An interest that turned into a hobby." },
   { year: "2019", label: "Added motion", note: "Video became half the work." },
   { year: "2021", label: "Went freelance", note: "Made the leap to full-time." },
-  { year: "Now", label: "Weddings & more", note: "Weddings, corporate, events and NUS projects." },
+  { year: "Now", label: "Weddings & more", note: "Weddings, corporate, events and special projects." },
 ];
 
 

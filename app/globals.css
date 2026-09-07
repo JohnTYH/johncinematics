@@ -110,43 +110,31 @@
     animation-direction: reverse;
   }
 
-  /* Hero frame — dissolves into the page rather than sitting in a box.
-     On mobile it bleeds up from the bottom; from md it fades in from the
-     left so the wordmark sits on clean charcoal. Kept as one element with
-     a media query rather than two hidden divs, so the browser only ever
-     fetches the image once. */
-  .hero-fade {
-    -webkit-mask-image: linear-gradient(
-      to top,
-      black 46%,
-      rgba(0, 0, 0, 0.55) 78%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to top,
-      black 46%,
-      rgba(0, 0, 0, 0.55) 78%,
-      transparent 100%
-    );
-  }
+  /* Hero frame.
 
+     On mobile it is full-bleed with no mask at all — the charcoal comes up
+     from the bottom as a scrim instead, so the photograph fills the screen.
+     From md the frame moves to the right of the screen and dissolves into
+     the charcoal horizontally. Extra intermediate stops approximate an ease:
+     a straight two-stop ramp reaches full opacity abruptly and reads as an
+     edge rather than a fade. */
   @media (min-width: 768px) {
     .hero-fade {
       -webkit-mask-image: linear-gradient(
         to right,
-        /* The frame starts at 36% of the viewport and is 64% wide, so a
-           stop at 22% lands full opacity at roughly the halfway mark —
-           left of where the fade used to finish, without moving the
-           photograph itself. */
         transparent 0%,
-        rgba(0, 0, 0, 0.5) 10%,
-        black 22%
+        rgba(0, 0, 0, 0.12) 9.4%,
+        rgba(0, 0, 0, 0.38) 18.4%,
+        rgba(0, 0, 0, 0.72) 26.6%,
+        black 36%
       );
       mask-image: linear-gradient(
         to right,
         transparent 0%,
-        rgba(0, 0, 0, 0.5) 10%,
-        black 22%
+        rgba(0, 0, 0, 0.12) 9.4%,
+        rgba(0, 0, 0, 0.38) 18.4%,
+        rgba(0, 0, 0, 0.72) 26.6%,
+        black 36%
       );
     }
   }
