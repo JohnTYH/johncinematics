@@ -362,12 +362,6 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-09199.jpg",
       },
       {
-        id: "john-00317",
-        category: "Weddings",
-        ratio: "portrait",
-        src: "/work/weddings/John-00317.jpg",
-      },
-      {
         id: "john-09345",
         category: "Weddings",
         ratio: "portrait",

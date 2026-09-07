@@ -488,7 +488,7 @@ export const images: Record<string, GeneratedImage> = {
       1440,
       1920
     ],
-    "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoQABQAPt1apkyopSOiMAgBEBuJZQCAAAZGsNoSrIm3KLAA/oxwXcKOFVj9Hye5RmCG8kFx/v+rzk9S6PUsjbJD/NiFjiYQrB3UDswhr1C2BRy2jzlvRAVeu4jWYosZ46onNHXGbDXfCSeliJYYziLlMpJyax+vmW6gAAAA"
+    "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBACdASoQABQAPt1apkyopSOiMAgBEBuJZwCAAGUJqAv84UG56A4HeAD+jPaJs4EVWXi7wsqaUHs3HliwZfj6LFfAvXGCElCpBpcXUjlcT55hVIMfN3y18r5rhLmTDMpG4gGM68ak0aVDOyipPGPk9fQNcAOLbwnF3KdZR/fQLAAA"
   },
   "/work/proposals/John-00218.jpg": {
     "src": "/work/proposals/John-00218.jpg",
@@ -753,18 +753,6 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAsAAwBSJZgCdAB15zYAAP5g/u11TpD+WBrL81Y/7JtmYAlp7tUeqbvpkmOn29zpgpvP5Qr2mOyaKK8t/gA41YAAAA=="
-  },
-  "/work/weddings/John-00317.jpg": {
-    "src": "/work/weddings/John-00317.jpg",
-    "width": 1920,
-    "height": 2880,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwAwCdASoQABgAPt1apkyopSOiMAgBEBuJagCdABjWCeOgSCC0AADNcGLLSW8y3BHKslXo48J3mWj1q7xWDInL8AJfTyiUUlJB5OBkEzI8Aq4O+p01CvBlpDde/x+DCLE01R8GcDeh1pzAk4d3ppg+KL0cRdRM1WsiJDS1/+onft1e/XJay6MRnb/Q7lBWAAA="
   },
   "/work/weddings/John-00456.jpg": {
     "src": "/work/weddings/John-00456.jpg",
