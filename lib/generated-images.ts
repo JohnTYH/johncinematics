@@ -1006,6 +1006,30 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADQAwCdASoQABgAPt1cp0yopSOiMAgBEBuJQBdgA81rZt0InbX1XEAA4DcQ17piHiQqDBA4dDqni7YZcTRKNIi1RU8fJJUrpn9RWEXyWltOBsXAEbU7hvEWR1liKNzr9Lv2jEIiDVKJ73NdeIwwgPkXa92RDb02MOTrHYhvsxsbkcrQG9ghZBb6gUl6fxEwEAAAAA=="
   },
+  "/work/weddings/John-07588.jpg": {
+    "src": "/work/weddings/John-07588.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQAgCdASoQAAsAAwBSJbAC7AYulvn2S2GwAP7uNV+PQiqlbR9YJvmmfoPVfLecSvzJHBkzPH5sfp84J9G+ILasz+WsppjkW7iwXpqNNaXFxkAs4dIZCWpeOiukcHtXbGRBPh7wYZzd/Ol56Ysw3dREyHgAAA=="
+  },
+  "/work/weddings/John-08230.jpg": {
+    "src": "/work/weddings/John-08230.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAAwBSJQBOgMXm4Cz1tw0uAAD+mEhITNMwksKb37Sfphm4ffra1/YXrUaFli7I/lhWDzQOUd5eRtCQxZ/VppDdASmbbjO0T3gG+0LPSW8qHlakg6CrjzibAAAA"
+  },
   "/work/weddings/John-08678.jpg": {
     "src": "/work/weddings/John-08678.jpg",
     "width": 1920,

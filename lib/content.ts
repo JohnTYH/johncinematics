@@ -96,10 +96,22 @@ export const collections: Collection[] = [
         src: "/work/proposals/John-09442.jpg",
       },
       {
+        id: "john-04413",
+        category: "Proposals",
+        ratio: "landscape",
+        src: "/work/proposals/John-04413.jpg",
+      },
+      {
         id: "john-03987",
         category: "Proposals",
         ratio: "portrait",
         src: "/work/proposals/John-03987.jpg",
+      },
+      {
+        id: "john-05080",
+        category: "Proposals",
+        ratio: "landscape",
+        src: "/work/proposals/John-05080.jpg",
       },
       {
         id: "john-04015",
@@ -114,16 +126,16 @@ export const collections: Collection[] = [
         src: "/work/proposals/John-09426_edited.jpg",
       },
       {
-        id: "john-04413",
-        category: "Proposals",
-        ratio: "landscape",
-        src: "/work/proposals/John-04413.jpg",
-      },
-      {
         id: "john-04310",
         category: "Proposals",
         ratio: "portrait",
         src: "/work/proposals/John-04310.jpg",
+      },
+      {
+        id: "john-09463",
+        category: "Proposals",
+        ratio: "landscape",
+        src: "/work/proposals/John-09463.jpg",
       },
       {
         id: "john-04392",
@@ -132,16 +144,16 @@ export const collections: Collection[] = [
         src: "/work/proposals/John-04392.jpg",
       },
       {
+        id: "john-09963-2",
+        category: "Proposals",
+        ratio: "landscape",
+        src: "/work/proposals/John-09963-2.jpg",
+      },
+      {
         id: "john-04518",
         category: "Proposals",
         ratio: "portrait",
         src: "/work/proposals/John-04518.jpg",
-      },
-      {
-        id: "john-05080",
-        category: "Proposals",
-        ratio: "landscape",
-        src: "/work/proposals/John-05080.jpg",
       },
       {
         id: "john-04979",
@@ -160,12 +172,6 @@ export const collections: Collection[] = [
         category: "Proposals",
         ratio: "portrait",
         src: "/work/proposals/John-05074.jpg",
-      },
-      {
-        id: "john-09463",
-        category: "Proposals",
-        ratio: "landscape",
-        src: "/work/proposals/John-09463.jpg",
       },
       {
         id: "john-05557",
@@ -284,10 +290,10 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-04605.jpg",
       },
       {
-        id: "john-08678",
+        id: "john-07588",
         category: "Weddings",
         ratio: "landscape",
-        src: "/work/weddings/John-08678.jpg",
+        src: "/work/weddings/John-07588.jpg",
       },
       {
         id: "john-04669",
@@ -296,10 +302,10 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-04669.jpg",
       },
       {
-        id: "john-09685",
+        id: "john-08230",
         category: "Weddings",
         ratio: "landscape",
-        src: "/work/weddings/John-09685.jpg",
+        src: "/work/weddings/John-08230.jpg",
       },
       {
         id: "john-08695",
@@ -308,10 +314,22 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-08695.jpg",
       },
       {
+        id: "john-08678",
+        category: "Weddings",
+        ratio: "landscape",
+        src: "/work/weddings/John-08678.jpg",
+      },
+      {
         id: "john-08966",
         category: "Weddings",
         ratio: "portrait",
         src: "/work/weddings/John-08966.jpg",
+      },
+      {
+        id: "john-09685",
+        category: "Weddings",
+        ratio: "landscape",
+        src: "/work/weddings/John-09685.jpg",
       },
       {
         id: "john-09199",
