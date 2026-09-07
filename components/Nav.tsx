@@ -27,7 +27,7 @@ export default function Nav() {
           page has scrolled — over the hero it stays invisible so the
           wordmark reads clean. */}
       <nav
-        className={`mx-auto flex h-14 max-w-[1400px] items-center justify-between rounded-full px-4 transition-all duration-700 md:px-6 ${
+        className={`relative mx-auto flex h-14 max-w-[1400px] items-center justify-between rounded-full px-4 transition-all duration-700 md:px-6 ${
           scrolled ? "glass" : "border border-transparent bg-transparent"
         }`}
       >
@@ -72,24 +72,26 @@ export default function Nav() {
             </span>
           </button>
         </div>
+        {/* Anchored under the toggle rather than spanning the header, so it
+            reads as that button's menu. ink-2 rather than ink keeps it a
+            shade lighter than the page while still dark enough to carry
+            text over a pale photograph. */}
+        {open && (
+          <ul className="glass absolute right-4 top-full mt-2 w-44 rounded-2xl bg-ink-2/85 px-4 py-2 md:hidden">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block py-2 text-[14px] text-bone/90 transition-colors hover:text-ember"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </nav>
-
-      {/* Mobile drawer — its own glass slab */}
-      {open && (
-        <ul className="glass mx-auto mt-2 max-w-[1400px] rounded-3xl bg-ink/85 px-5 py-3 md:hidden">
-          {links.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block py-2.5 text-sm text-bone/85 transition-colors hover:text-ember"
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
     </header>
   );
 }
