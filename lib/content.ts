@@ -96,10 +96,10 @@ export const collections: Collection[] = [
         src: "/work/proposals/John-09442.jpg",
       },
       {
-        id: "john-00218",
+        id: "john-05080",
         category: "Proposals",
         ratio: "landscape",
-        src: "/work/proposals/John-00218.jpg",
+        src: "/work/proposals/John-05080.jpg",
       },
       {
         id: "john-03987",
@@ -132,10 +132,10 @@ export const collections: Collection[] = [
         src: "/work/proposals/John-04310.jpg",
       },
       {
-        id: "john-05080",
+        id: "john-00218",
         category: "Proposals",
         ratio: "landscape",
-        src: "/work/proposals/John-05080.jpg",
+        src: "/work/proposals/John-00218.jpg",
       },
       {
         id: "john-04392",
@@ -236,16 +236,16 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-00456.jpg",
       },
       {
-        id: "john-00317",
+        id: "john-09234",
         category: "Weddings",
         ratio: "portrait",
-        src: "/work/weddings/John-00317.jpg",
+        src: "/work/weddings/John-09234.jpg",
       },
       {
-        id: "john-00484",
+        id: "john-07588",
         category: "Weddings",
         ratio: "landscape",
-        src: "/work/weddings/John-00484.jpg",
+        src: "/work/weddings/John-07588.jpg",
       },
       {
         id: "john-00460",
@@ -314,10 +314,10 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-04605.jpg",
       },
       {
-        id: "john-07588",
+        id: "john-00484",
         category: "Weddings",
         ratio: "landscape",
-        src: "/work/weddings/John-07588.jpg",
+        src: "/work/weddings/John-00484.jpg",
       },
       {
         id: "john-04669",
@@ -362,10 +362,10 @@ export const collections: Collection[] = [
         src: "/work/weddings/John-09199.jpg",
       },
       {
-        id: "john-09234",
+        id: "john-00317",
         category: "Weddings",
         ratio: "portrait",
-        src: "/work/weddings/John-09234.jpg",
+        src: "/work/weddings/John-00317.jpg",
       },
       {
         id: "john-09345",

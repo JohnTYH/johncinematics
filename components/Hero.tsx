@@ -73,14 +73,14 @@ export default function Hero() {
           <span className="sr-only">John Cinematics</span>
 
           <Reveal as="span" aria-hidden className="block">
-            <span className="display block text-right text-[34vw] leading-[0.8] text-bone md:text-[min(18vw,255px)]">
+            <span className="display block text-right text-[30vw] leading-[0.8] text-bone md:text-[min(18vw,255px)]">
               John
             </span>
           </Reveal>
 
           <Reveal as="span" aria-hidden className="block" delay={120}>
             <span
-              className="display block text-[20vw] leading-[0.9] text-transparent md:text-[min(11vw,156px)]"
+              className="display block text-[17.6vw] leading-[0.9] text-transparent md:text-[min(11vw,156px)]"
               style={{
                 WebkitTextStroke: "clamp(1px, 0.13vw, 2px) var(--color-bone)",
               }}
