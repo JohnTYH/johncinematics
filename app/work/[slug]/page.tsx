@@ -112,6 +112,33 @@ export default async function CollectionPage({ params }: Params) {
             </p>
           </Reveal>
 
+          {collection.details && (
+            <Reveal
+              delay={200}
+              className="glass mt-10 rounded-[2rem] p-6 md:mt-12 md:p-10"
+            >
+              <div className="grid gap-8 md:grid-cols-12 md:gap-12">
+                <p className="text-pretty text-[15px] leading-relaxed text-bone/70 md:col-span-7 md:text-base">
+                  {collection.details.intro}
+                </p>
+
+                <dl className="md:col-span-5">
+                  {collection.details.specs.map((spec) => (
+                    <div
+                      key={spec.label}
+                      className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-ink-3 py-3 first:border-t-0 first:pt-0"
+                    >
+                      <dt className="text-[13px] uppercase tracking-[0.15em] text-ash">
+                        {spec.label}
+                      </dt>
+                      <dd className="text-[14px] text-bone">{spec.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </Reveal>
+          )}
+
           <Reveal delay={240} className="mt-10 block md:mt-12">
             <Photo
               item={cover}

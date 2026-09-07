@@ -9,6 +9,11 @@
  *
  * Keep WIDTHS in sync with the script and with `deviceSizes` in
  * next.config.mjs.
+ *
+ * The `quality` argument is deliberately ignored: the variants are already
+ * encoded at a fixed quality by scripts/optimize-images.mjs, so there is
+ * nothing to vary at request time. Components pass no `quality` prop for
+ * the same reason.
  */
 const WIDTHS = [480, 960, 1440, 1920];
 

@@ -47,7 +47,6 @@ export default function Frame({
           fill
           sizes={sizes}
           priority={priority}
-          quality={82}
           placeholder={generated ? "blur" : "empty"}
           blurDataURL={generated?.blurDataURL}
           className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"

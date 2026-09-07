@@ -57,7 +57,6 @@ export default function Photo({
           fill
           sizes={sizes}
           priority={priority}
-          quality={82}
           placeholder={generated ? "blur" : "empty"}
           blurDataURL={generated?.blurDataURL}
           className="object-cover"

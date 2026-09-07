@@ -62,6 +62,20 @@ export type VideoGroup = {
 
 /* A collection is one body of work. images[0] is the cover: it's what the
    home grid shows, and it leads the collection's own page. */
+/**
+ * The "what this involves" block on a collection page.
+ *
+ * Everything here is a fact from the rate card — hours, photo counts,
+ * delivery windows, prices. That specificity is the point: it's what a
+ * couple wants before enquiring, and it's the only kind of content search
+ * and answer engines can quote back to someone asking what a wedding
+ * photographer in Singapore costs.
+ */
+export type CollectionDetails = {
+  intro: string;
+  specs: { label: string; value: string }[];
+};
+
 /** A labelled subsection of photographs inside a collection page. */
 export type PhotoGroup = {
   title: string;
@@ -76,6 +90,7 @@ export type Collection = {
   name: string;
   blurb: string;
   images: WorkItem[];
+  details?: CollectionDetails;
   /** Present → the page renders grouped films instead of a photo grid. */
   videoGroups?: VideoGroup[];
   /** Present → the page renders the photographs in labelled subsections. */
@@ -88,6 +103,16 @@ export const collections: Collection[] = [
     name: "Proposals",
     blurb:
       "You'll be too overwhelmed in the moment to remember every detail — which is exactly why I'm there. The anticipation, the tears you didn't plan, and the smile you couldn't hold back.",
+    details: {
+      intro:
+        "A proposal happens once and it happens quickly. I get into position before you do — far enough back that nobody notices a photographer, close enough to catch the second she turns round. Two hours covers the setup, the proposal itself, and the phone calls to family straight afterwards.",
+      specs: [
+        { label: "Coverage", value: "2 hours" },
+        { label: "Photos", value: "~60\u201380 edited" },
+        { label: "Delivery", value: "Within 10 days" },
+        { label: "From", value: "$400" },
+      ],
+    },
     images: [
       {
         id: "john-09442",
@@ -222,6 +247,16 @@ export const collections: Collection[] = [
     name: "Weddings",
     blurb:
       "The people who show up for you on your wedding day are what make it unforgettable. Every joyful tear, every proud smile, every candid moment between the people who have loved you all along — so when you look back, you're reliving their day too.",
+    details: {
+      intro:
+        "Most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house rather than sent out.",
+      specs: [
+        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days \u00b7 $188/hr" },
+        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days \u00b7 $178/hr" },
+        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 10 days \u00b7 $400" },
+        { label: "Add-ons", value: "Hair and makeup $160/hr \u00b7 slideshow $100 \u00b7 magazine $250" },
+      ],
+    },
     images: [
       {
         id: "john-01344",
@@ -374,6 +409,15 @@ export const collections: Collection[] = [
     name: "Events",
     blurb:
       "Corporate days and private celebrations \u2014 the handshakes, the speeches, the moments people are too busy hosting to notice.",
+    details: {
+      intro:
+        "Conferences, launches, company days, birthdays and private parties. Events are quoted per booking rather than by package, because a two-hour product launch and a full-day conference are different jobs. Tell me the date, the venue and roughly how long you need someone there.",
+      specs: [
+        { label: "Coverage", value: "Quoted per event" },
+        { label: "Delivery", value: "Private online gallery" },
+        { label: "Works with", value: "Corporate and private clients" },
+      ],
+    },
     images: [
       {
         id: "events-cover",
@@ -625,6 +669,15 @@ export const collections: Collection[] = [
     name: "Videography",
     blurb:
       "Your love story deserves more than a montage. Cinematic visuals and heartfelt interviews, cut into something your guests experience on the day and you keep long after it.",
+    details: {
+      intro:
+        "Your love story deserves more than a montage. Pre-wedding films are built around the couple rather than a template \u2014 cinematic visuals and heartfelt interviews, cut into something your guests experience on the day and you keep long after it. Filming is quoted individually, so tell me what you have in mind.",
+      specs: [
+        { label: "Pre-wedding film", value: "Personalised quote" },
+        { label: "Includes", value: "Concept, filming, edit and grade" },
+        { label: "Also available", value: "Alongside photography on the day" },
+      ],
+    },
     images: [
       {
         id: "videography-cover",
@@ -706,6 +759,54 @@ export const heroImage: WorkItem = {
   ratio: "portrait",
   src: "/work/main/John-01013.jpg",
 };
+
+
+/* ---------------------------------------------------------------------------
+   FAQ
+   ---------------------------------------------------------------------------
+   Every answer here is a fact from the rate card. Answer engines quote
+   specifics, not adjectives — "within 21 days" is citable in a way that
+   "quick turnaround" never is. Rendered on /enquire and emitted as
+   FAQPage structured data.
+
+   Worth adding when you can, since people ask and I don't have your answers:
+   how far ahead to book, deposit terms, travel outside Singapore, and what
+   happens if the weather turns.
+--------------------------------------------------------------------------- */
+export const faqs = [
+  {
+    q: "How much does a wedding photographer cost in Singapore?",
+    a: "My full day package is $178/hr for six to eight hours of coverage, and the half day is $188/hr for three to four. A ROM or proposal shoot is $400 for two hours. Every package includes editing and a private online gallery.",
+  },
+  {
+    q: "How long until we get our photos?",
+    a: "A ROM or proposal shoot is delivered within 10 days, a half day within 14, and a full day within 21. Everything arrives in a private online gallery.",
+  },
+  {
+    q: "How many photos do we get?",
+    a: "Around 60 to 80 edited photos from a two-hour ROM or proposal, 100 to 150 from a half day, and over 200 from a full day.",
+  },
+  {
+    q: "What's included in a pre-wedding shoot?",
+    a: "A personalised moodboard and two themes over three hours for $588, or three themes over five hours for $888. You get more than 80 colour-edited photos from the three-hour shoot and more than 120 from the five-hour, plus a private online gallery.",
+  },
+  {
+    q: "Do you shoot video as well as photography?",
+    a: "Yes. Pre-wedding films are quoted individually rather than packaged, because the concept drives the cost. They can be filmed alongside photography on the same day.",
+  },
+  {
+    q: "Can you arrange hair and makeup?",
+    a: "Yes, a makeup artist can be added at $160/hr. Other add-ons include a photo slideshow at $100, a 20-page display magazine at $250, and an early morning start at $50.",
+  },
+  {
+    q: "Where are you based?",
+    a: "Singapore. I have been shooting since 2018, picked up videography in 2019, and went full-time freelance in 2021 — working across weddings, corporate shoots, events and special projects with NUS.",
+  },
+  {
+    q: "What is your style?",
+    a: "Clean, sharp and natural, especially for weddings, with room for something more filmic when it suits the couple's story. Colour grading is done in-house rather than outsourced.",
+  },
+];
 
 /* ---------------------------------------------------------------------------
    WhatsApp — where the enquiry form sends people.

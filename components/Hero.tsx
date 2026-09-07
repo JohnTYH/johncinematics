@@ -21,8 +21,7 @@ export default function Hero() {
             alt=""
             fill
             priority
-            quality={82}
-            sizes="(min-width: 768px) 64vw, 100vw"
+              sizes="(min-width: 768px) 64vw, 100vw"
             placeholder={generated ? "blur" : "empty"}
             blurDataURL={generated?.blurDataURL}
             className="object-cover"
