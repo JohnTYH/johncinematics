@@ -400,10 +400,10 @@ export const collections: Collection[] = [
           src: "/work/events/corporate/John-00258-2.jpg",
         },
         {
-          id: "john",
+          id: "john-00713",
           category: "Corporate events",
           ratio: "portrait",
-          src: "/work/events/corporate/John-.jpg",
+          src: "/work/events/corporate/John-00713.jpg",
         },
         {
           id: "john-06705",
@@ -424,10 +424,10 @@ export const collections: Collection[] = [
           src: "/work/events/corporate/John-06777.jpg",
         },
         {
-          id: "john-00713",
+          id: "john",
           category: "Corporate events",
           ratio: "portrait",
-          src: "/work/events/corporate/John-00713.jpg",
+          src: "/work/events/corporate/John-.jpg",
         },
         {
           id: "john-06808",
@@ -448,12 +448,6 @@ export const collections: Collection[] = [
           src: "/work/events/corporate/John-07135.jpg",
         },
         {
-          id: "john-09067",
-          category: "Corporate events",
-          ratio: "portrait",
-          src: "/work/events/corporate/John-09067.jpg",
-        },
-        {
           id: "john-07179",
           category: "Corporate events",
           ratio: "landscape",
@@ -464,12 +458,6 @@ export const collections: Collection[] = [
           category: "Corporate events",
           ratio: "landscape",
           src: "/work/events/corporate/John-07191.jpg",
-        },
-        {
-          id: "john-07198",
-          category: "Corporate events",
-          ratio: "landscape",
-          src: "/work/events/corporate/John-07198.jpg",
         },
         {
           id: "john-07202",
@@ -520,24 +508,6 @@ export const collections: Collection[] = [
           src: "/work/events/corporate/John-08645-2.jpg",
         },
         {
-          id: "john-08911",
-          category: "Corporate events",
-          ratio: "landscape",
-          src: "/work/events/corporate/John-08911.jpg",
-        },
-        {
-          id: "john-08982",
-          category: "Corporate events",
-          ratio: "landscape",
-          src: "/work/events/corporate/John-08982.jpg",
-        },
-        {
-          id: "john-09008",
-          category: "Corporate events",
-          ratio: "landscape",
-          src: "/work/events/corporate/John-09008.jpg",
-        },
-        {
           id: "john-09128",
           category: "Corporate events",
           ratio: "landscape",
@@ -548,12 +518,6 @@ export const collections: Collection[] = [
           category: "Corporate events",
           ratio: "landscape",
           src: "/work/events/corporate/John_DSC00097.jpg",
-        },
-        {
-          id: "john-dsc00338",
-          category: "Corporate events",
-          ratio: "landscape",
-          src: "/work/events/corporate/John_DSC00338.jpg",
         },
         ],
       },
@@ -567,12 +531,6 @@ export const collections: Collection[] = [
           category: "Personal events",
           ratio: "landscape",
           src: "/work/events/personal/John-00480.jpg",
-        },
-        {
-          id: "john-00398",
-          category: "Personal events",
-          ratio: "portrait",
-          src: "/work/events/personal/John-00398.jpg",
         },
         {
           id: "john-00591",
@@ -611,12 +569,6 @@ export const collections: Collection[] = [
           src: "/work/events/personal/John-02583.jpg",
         },
         {
-          id: "john-02048",
-          category: "Personal events",
-          ratio: "landscape",
-          src: "/work/events/personal/John-02048.jpg",
-        },
-        {
           id: "john-03192",
           category: "Personal events",
           ratio: "portrait",
@@ -633,12 +585,6 @@ export const collections: Collection[] = [
           category: "Personal events",
           ratio: "portrait",
           src: "/work/events/personal/John-06483.jpg",
-        },
-        {
-          id: "john-02123",
-          category: "Personal events",
-          ratio: "landscape",
-          src: "/work/events/personal/John-02123.jpg",
         },
         {
           id: "john-02177",
@@ -681,12 +627,6 @@ export const collections: Collection[] = [
           category: "Personal events",
           ratio: "landscape",
           src: "/work/events/personal/John-07880.jpg",
-        },
-        {
-          id: "john-08171",
-          category: "Personal events",
-          ratio: "landscape",
-          src: "/work/events/personal/John-08171.jpg",
         },
         ],
       },

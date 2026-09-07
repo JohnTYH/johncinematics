@@ -154,18 +154,6 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABwAgCdASoQAAsAAwBSJaACdAYrJdWnxkpAYagAAP7u7Sy9TLQyf7wQpuhpwVsaIje1MPVEXEjBOjB6TfZ4wwvpqy+zjL603SFWV0Y3t+x+4D5PS1nOGTkj1rYq8hJQl6kFT8wF/lXelob+XKBC/ZXmz2eS20k2kH8AAA=="
   },
-  "/work/events/corporate/John-07198.jpg": {
-    "src": "/work/events/corporate/John-07198.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQAgCdASoQAAsAAwBSJZACdADvbpzv0CVQAP73msS2F5cUkiAONkWNYQKQjz/U67tZ3Lufv6TccWz3c2YfxbLHFMhwdYazc5Dwze3tVdj2THaedv3/r5OL++ecLCMUqFC46ZkQyFcO1NrvtfImkVJ4AAA="
-  },
   "/work/events/corporate/John-07202.jpg": {
     "src": "/work/events/corporate/John-07202.jpg",
     "width": 1920,
@@ -274,54 +262,6 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsAAwBSJYwCdAEMSn6OO1gAAP74fDiDrfEss95Xla/0roFZmXamWG6YWge+1cdhI6nCZn0mIB844Jj3TK3GwK1bS+7HIkBw0DilMuJPXNWCpIkPAAAA"
   },
-  "/work/events/corporate/John-08911.jpg": {
-    "src": "/work/events/corporate/John-08911.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAsAAwBSJZQC7AEHImLpCO+EAP7g0XTiRTuA8Yr/jPO4MDA36oIQRPX3CMhv7xZkop6QpFvOIQjwJJ8ntArKbvE2Cwy0PdUjM+c0xQLksw4FBnF+2rpYFgA="
-  },
-  "/work/events/corporate/John-08982.jpg": {
-    "src": "/work/events/corporate/John-08982.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAsAAwBSJaACdAC6iOhHLYAA/eL3QwfUr/HMkH6OeHrAYODXulneZlBVvcW9rfKkTk8iGheD+NHVvLz1BzvNZ3pO2/Vwgc435zduTR4pyRpiAAA="
-  },
-  "/work/events/corporate/John-09008.jpg": {
-    "src": "/work/events/corporate/John-09008.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAsAAwBSJYwCdAC4NgyI/uSAAP7zUQ1Cj2OdqjNckB9dPz1Luhauv1/pEVdB8XGNfh96jNv8Weo2ykNqpDAgwMbqmT7Yzf480sLN6mgHORtyIMAAAA=="
-  },
-  "/work/events/corporate/John-09067.jpg": {
-    "src": "/work/events/corporate/John-09067.jpg",
-    "width": 1920,
-    "height": 2880,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACwBACdASoQABgAPt1apkyopSOiMAgBEBuJZQCw7dwLhFYw6r+rEfaG7GhuXpoAAPcfIccew4GYXWh9GJZcDwhgXAY0nkBsGbkqvpqZAMSRK3LkoUkzr6PrVooO0FI2PxJ9txE26zwMShkodo27Ub5/OwqNPjMEk1Erdp+hzWlz7rz3HMXiC8BFuufbJc3ceL33ubhqOydtoLBo5IDAgUxsTqAnmAAA"
-  },
   "/work/events/corporate/John-09128.jpg": {
     "src": "/work/events/corporate/John-09128.jpg",
     "width": 1920,
@@ -345,30 +285,6 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAgCdASoQAAsAAwBSJZACdAYubwlbHYdRIogA/vGeOzzrwQUyWdXZJUk+kZZLLmLtOo4fe0DMK9cdmP+U2ZPGwmhixVZS+LG7fZB/5z6182k056HTtUj411N+E/Uklrl2lOTPgji9hW1ehqEa3v/dB0K4AA=="
-  },
-  "/work/events/corporate/John_DSC00338.jpg": {
-    "src": "/work/events/corporate/John_DSC00338.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAgCdASoQAAsAAwBSJbACdAYvXSZhjFgn2AD9d7dJ/egjYA+8O7JS7YE+LaovmVUa951wvy9whiauwy9jb3R+nuQ/zyBfkH9Al/vXoi2BREfgNYfCKT8NNwrukejlS8sdmjBV+Fp303WKPfVVk4l1e4T4cZh7tCZr70AA"
-  },
-  "/work/events/personal/John-00398.jpg": {
-    "src": "/work/events/personal/John-00398.jpg",
-    "width": 1920,
-    "height": 2880,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADQBACdASoQABgAPt1apkyopSOiMAgBEBuJZACsAyweAAV1v/XaQ1UeW/VhS/orAAD92hmEdG+gQ2FQqGTWpyeboe+fRydFDNTCFe4j/HcCGFnT6uWs/OsuYm83s6HTXj74Mb88fMs0FxXyKCNpLHPLyUd8T/wzxJ6SU8ARqUPNUPfzzML7K3JUMWRju/pkFSkHxCjKT8lrXI5jZ9fGw9IPJvT+qa9s3Pr2g7yeDrewAA=="
   },
   "/work/events/personal/John-00480.jpg": {
     "src": "/work/events/personal/John-00480.jpg",
@@ -430,18 +346,6 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAsAAwBSJQBOgCFqAyzwAAAUAAD+8mrNwQKADin1aJ7gGFznHnN5/J2xAm12nRl1eDeXukILb8KgViKAL6G5HX+GYOyqjQi5Nb3y2rKAAA=="
   },
-  "/work/events/personal/John-02048.jpg": {
-    "src": "/work/events/personal/John-02048.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQAAsAAwBSJaACdADyoEg3HKgAzh98v/8VQPK/C2GxD/sosWA9Qq6Zvfu92boQnbA/c/17r8IyHqBiLpNLvT+cyGh5dWgQa7uuwLm1IqIQMEqSmnMVTZ3H+AA="
-  },
   "/work/events/personal/John-02094.jpg": {
     "src": "/work/events/personal/John-02094.jpg",
     "width": 1920,
@@ -453,18 +357,6 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAQCdASoQAAsAAwBSJQBOgB5Gp/YAAP5OinIswqZf1NxmPBpy4mL5vwXSIvdoef4yXLZZsDg18XaRNdvptEsgi8IiqFVbEin8PDJARjR0Y05m53AAAA=="
-  },
-  "/work/events/personal/John-02123.jpg": {
-    "src": "/work/events/personal/John-02123.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwAgCdASoQAAsAAwBSJbACdAYwxvvSpITj8FQAAP7SbXEzHn20LKbq4lpffkQQDepFCZkirXfug04I+Mae8mjYJ9OUpViYqH0xYt+pl8AuyPwdtkVZqQSGd6lFaxFKsPLeggH7p8niP2pz/AAAAA=="
   },
   "/work/events/personal/John-02177.jpg": {
     "src": "/work/events/personal/John-02177.jpg",
@@ -597,18 +489,6 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABwAgCdASoQAAsAAwBSJbACsAYvrqoTK6f6HvSAAP63+Zl28qrvhoejcuJg6P/Wezc/fI/bez0+623nr8FtET9oau9yXfx8uRkB2T1Mr+5wFeubvp7Vc9V5dr+VUgGtzX7f2n0weSsBltN/vi/tAAAA"
-  },
-  "/work/events/personal/John-08171.jpg": {
-    "src": "/work/events/personal/John-08171.jpg",
-    "width": 1920,
-    "height": 1280,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAsAAwBSJaACdAEPNl9DJpAAAP7UbXPGfjoRXzQSNM76y1dWjUiA1MoSseTj6bDOB8mHllovr3Tty3FxO9g1GxSGZxZBa4wpZrjOGJcVt0zSQOnUaVIElpMjrsCz67AAAA=="
   },
   "/work/main/John-01013.jpg": {
     "src": "/work/main/John-01013.jpg",
