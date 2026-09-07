@@ -25,13 +25,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!collection) return {};
 
   return {
-    /* The layout template appends the brand, so the title is just the name. */
-    title: collection.name,
-    description: collection.blurb,
+    /* The layout template appends the brand. seoTitle carries the service
+       and the location, which the display heading is too short to say. */
+    title: collection.seoTitle ?? collection.name,
+    description: collection.seoDescription ?? collection.blurb,
     alternates: { canonical: abs(`/work/${slug}`) },
     openGraph: {
-      title: `${collection.name} — ${SITE_NAME}`,
-      description: collection.blurb,
+      title: `${collection.seoTitle ?? collection.name} — ${SITE_NAME}`,
+      description: collection.seoDescription ?? collection.blurb,
       url: abs(`/work/${slug}`),
       images: collection.images[0]?.src
         ? [absFile(collection.images[0].src.replace(".jpg", "-1440.webp"))]
@@ -106,8 +107,16 @@ export default async function CollectionPage({ params }: Params) {
             </h1>
           </Reveal>
 
+          {collection.seoTitle && (
+            <Reveal delay={120}>
+              <p className="mt-5 text-[13px] uppercase tracking-[0.2em] text-ember">
+                {collection.seoTitle}
+              </p>
+            </Reveal>
+          )}
+
           <Reveal delay={160}>
-            <p className="mt-6 max-w-xl text-pretty text-[15px] leading-relaxed text-ash md:text-base">
+            <p className="mt-5 max-w-xl text-pretty text-[15px] leading-relaxed text-ash md:text-base">
               {collection.blurb}
             </p>
           </Reveal>

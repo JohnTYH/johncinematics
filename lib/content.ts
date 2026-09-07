@@ -90,6 +90,13 @@ export type Collection = {
   name: string;
   blurb: string;
   images: WorkItem[];
+  /**
+   * What the page is called for search. The display heading stays short for
+   * the design ("Weddings"), so the service and the location have to live
+   * here and in the copy, or the page never states what it actually is.
+   */
+  seoTitle?: string;
+  seoDescription?: string;
   details?: CollectionDetails;
   /** Present → the page renders grouped films instead of a photo grid. */
   videoGroups?: VideoGroup[];
@@ -100,17 +107,20 @@ export type Collection = {
 export const collections: Collection[] = [
   {
     slug: "proposals",
+    seoTitle: "Proposal Photographer in Singapore",
+    seoDescription:
+      "Surprise proposal photography in Singapore. Two hours of coverage, around 60 to 80 edited photos in a private gallery, delivered within 10 days.",
     name: "Proposals",
     blurb:
       "You'll be too overwhelmed in the moment to remember every detail — which is exactly why I'm there. The anticipation, the tears you didn't plan, and the smile you couldn't hold back.",
     details: {
       intro:
-        "A proposal happens once and it happens quickly. I get into position before you do — far enough back that nobody notices a photographer, close enough to catch the second she turns round. Two hours covers the setup, the proposal itself, and the phone calls to family straight afterwards.",
+        "A proposal happens once and it happens quickly. Wherever in Singapore you have planned it, I get into position before you do — far enough back that nobody notices a photographer, close enough to catch the second she turns round. Two hours covers the setup, the proposal itself, and the phone calls to family straight afterwards.",
       specs: [
         { label: "Coverage", value: "2 hours" },
         { label: "Photos", value: "~60\u201380 edited" },
         { label: "Delivery", value: "Within 10 days" },
-        { label: "From", value: "$400" },
+        { label: "From", value: "$320" },
       ],
     },
     images: [
@@ -244,16 +254,19 @@ export const collections: Collection[] = [
   },
   {
     slug: "weddings",
+    seoTitle: "Wedding Photographer in Singapore",
+    seoDescription:
+      "Wedding and ROM photography in Singapore. Half day from $175/hr, full day from $170/hr, over 200 edited photos delivered within 21 days.",
     name: "Weddings",
     blurb:
       "The people who show up for you on your wedding day are what make it unforgettable. Every joyful tear, every proud smile, every candid moment between the people who have loved you all along — so when you look back, you're reliving their day too.",
     details: {
       intro:
-        "Most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house rather than sent out.",
+        "I photograph weddings across Singapore, and most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house rather than sent out.",
       specs: [
-        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days \u00b7 $188/hr" },
-        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days \u00b7 $178/hr" },
-        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 10 days \u00b7 $400" },
+        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days \u00b7 $175/hr" },
+        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days \u00b7 $170/hr" },
+        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 10 days \u00b7 $350" },
         { label: "Add-ons", value: "Hair and makeup $160/hr \u00b7 slideshow $100 \u00b7 magazine $250" },
       ],
     },
@@ -406,12 +419,15 @@ export const collections: Collection[] = [
   },
   {
     slug: "events",
+    seoTitle: "Event Photographer in Singapore",
+    seoDescription:
+      "Corporate and private event photography in Singapore. Conferences, launches, company days, birthdays and private parties, quoted per booking.",
     name: "Events",
     blurb:
       "Corporate days and private celebrations \u2014 the handshakes, the speeches, the moments people are too busy hosting to notice.",
     details: {
       intro:
-        "Conferences, launches, company days, birthdays and private parties. Events are quoted per booking rather than by package, because a two-hour product launch and a full-day conference are different jobs. Tell me the date, the venue and roughly how long you need someone there.",
+        "Corporate and private events across Singapore \u2014 conferences, launches, company days, birthdays and private parties. Events are quoted per booking rather than by package, because a two-hour product launch and a full-day conference are different jobs. Tell me the date, the venue and roughly how long you need someone there.",
       specs: [
         { label: "Coverage", value: "Quoted per event" },
         { label: "Delivery", value: "Private online gallery" },
@@ -666,6 +682,9 @@ export const collections: Collection[] = [
   },
   {
     slug: "videography",
+    seoTitle: "Wedding Videographer in Singapore",
+    seoDescription:
+      "Pre-wedding films and wedding videography in Singapore. Cinematic visuals and heartfelt interviews, filmed and graded in-house.",
     name: "Videography",
     blurb:
       "Your love story deserves more than a montage. Cinematic visuals and heartfelt interviews, cut into something your guests experience on the day and you keep long after it.",
@@ -776,7 +795,7 @@ export const heroImage: WorkItem = {
 export const faqs = [
   {
     q: "How much does a wedding photographer cost in Singapore?",
-    a: "My full day package is $178/hr for six to eight hours of coverage, and the half day is $188/hr for three to four. A ROM or proposal shoot is $400 for two hours. Every package includes editing and a private online gallery.",
+    a: "My full day package is $170/hr for six to eight hours of coverage, and the half day is $175/hr for three to four. A ROM or proposal shoot is $350 for two hours. Every package includes editing and a private online gallery.",
   },
   {
     q: "How long until we get our photos?",
