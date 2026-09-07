@@ -488,7 +488,7 @@ export const images: Record<string, GeneratedImage> = {
       1440,
       1920
     ],
-    "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBACdASoQABQAPt1apkyopSOiMAgBEBuJZwCAAGUJqAv84UG56A4HeAD+jPaJs4EVWXi7wsqaUHs3HliwZfj6LFfAvXGCElCpBpcXUjlcT55hVIMfN3y18r5rhLmTDMpG4gGM68ak0aVDOyipPGPk9fQNcAOLbwnF3KdZR/fQLAAA"
+    "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoQABQAPt1cpkyopSOiMAgBEBuJZwAjwACq9pdggCOeCyA3LIAA/q+XW88wbaON8PWQa6FL4BVwbwtWcrD3hWUxeQi6Q6FR0hZlwAvSbUjlJZVd67mG4lUjQKpHJE1qPRtAzr6gXjPH/3T15beLjaqUrnbpK9l7gunkwceLacAAAA=="
   },
   "/work/proposals/John-00218.jpg": {
     "src": "/work/proposals/John-00218.jpg",
