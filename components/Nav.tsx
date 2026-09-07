@@ -36,7 +36,7 @@ export default function Nav() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="text-[13px] tracking-wide text-ash transition-colors hover:text-bone"
+                className="text-[13px] tracking-wide text-bone/80 transition-colors hover:text-bone"
               >
                 {l.label}
               </Link>
@@ -76,13 +76,13 @@ export default function Nav() {
 
       {/* Mobile drawer — its own glass slab */}
       {open && (
-        <ul className="glass mx-auto mt-2 max-w-[1400px] rounded-3xl px-5 py-3 md:hidden">
+        <ul className="glass mx-auto mt-2 max-w-[1400px] rounded-3xl bg-ink/85 px-5 py-3 md:hidden">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-2.5 text-sm text-ash transition-colors hover:text-bone"
+                className="block py-2.5 text-sm text-bone/85 transition-colors hover:text-ember"
               >
                 {l.label}
               </Link>

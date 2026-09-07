@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-ink-3 pt-6 text-[12px] text-ash md:mt-16 md:flex-row md:items-center md:justify-between md:gap-3 md:pt-8">
-          <p>&copy; {new Date().getFullYear()} John Cinematics.</p>
+          <p>&copy; {new Date().getFullYear()} John Cinematics</p>
         </div>
       </div>
     </footer>
