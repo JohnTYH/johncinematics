@@ -122,29 +122,47 @@ export default async function CollectionPage({ params }: Params) {
           </Reveal>
 
           {collection.details && (
-            <Reveal
-              delay={200}
-              className="glass mt-10 rounded-[2rem] p-6 md:mt-12 md:p-10"
-            >
-              <div className="grid gap-8 md:grid-cols-12 md:gap-12">
-                <p className="text-pretty text-[15px] leading-relaxed text-bone/70 md:col-span-7 md:text-base">
-                  {collection.details.intro}
-                </p>
+            <Reveal delay={200} className="mt-10 md:mt-12">
+              {/* Native <details> on purpose: everything inside stays in the
+                  HTML while collapsed, so the copy and the prices are still
+                  indexed and still quotable by answer engines. Conditional
+                  rendering would strip them from the page entirely. */}
+              <details className="group">
+                <summary className="glass glass-hover inline-flex cursor-pointer list-none items-center gap-2.5 rounded-full px-5 py-2.5 text-[13px] uppercase tracking-[0.15em] text-bone [&::-webkit-details-marker]:hidden">
+                  Pricing
+                  <svg
+                    viewBox="0 0 16 16"
+                    aria-hidden
+                    className="h-3.5 w-3.5 fill-none stroke-current stroke-[1.75] transition-transform duration-300 group-open:rotate-180"
+                  >
+                    <path
+                      d="M3.5 6 8 10.5 12.5 6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </summary>
 
-                <dl className="md:col-span-5">
-                  {collection.details.specs.map((spec) => (
-                    <div
-                      key={spec.label}
-                      className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-ink-3 py-3 first:border-t-0 first:pt-0"
-                    >
-                      <dt className="text-[13px] uppercase tracking-[0.15em] text-ash">
-                        {spec.label}
-                      </dt>
-                      <dd className="text-[14px] text-bone">{spec.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
+                <div className="glass mt-5 rounded-[2rem] p-6 md:p-10">
+                  <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
+                    {collection.details.intro}
+                  </p>
+
+                  <dl className="mt-7 max-w-2xl">
+                    {collection.details.specs.map((spec) => (
+                      <div
+                        key={spec.label}
+                        className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-ink-3 py-3"
+                      >
+                        <dt className="text-[13px] uppercase tracking-[0.15em] text-ash">
+                          {spec.label}
+                        </dt>
+                        <dd className="text-[14px] text-bone">{spec.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </details>
             </Reveal>
           )}
 
