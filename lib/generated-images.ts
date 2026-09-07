@@ -394,18 +394,6 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABwBACdASoQABgAPt1apkyopSOiMAgBEBuJZgCdMoR4GBK54fu341ewxhBoAAD7Z76T9gFLpJJBNXceuGdN+ZPuUFNAaIFPqS7HASmX1ibiysCIu8gNNVKFJdx6ee0EyIWLkkFmyGnZsqDnh82wvWU+evakVx5odnq/tLA6EdpTpq5FRkG+6Q66MtZSFYeT7W4Z+7Y84gAAAA=="
   },
-  "/work/events/personal/John-03192.jpg": {
-    "src": "/work/events/personal/John-03192.jpg",
-    "width": 1920,
-    "height": 2880,
-    "widths": [
-      480,
-      960,
-      1440,
-      1920
-    ],
-    "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACQBACdASoQABgAPt1apkyopSOiMAgBEBuJQBdkGQxgAfDi84MRjDBay+5MsIAA/vQxjDzHD/EAO/qsr8u0Ik/eT3lu+at1YnlrCoNWSBAKlmcSGIimvZwbI682Gx5jbJfKqyHS9h3gasOfsh3QGm8fx2BKFT8jhVVIB07K/aQv5zawwQAAAA=="
-  },
   "/work/events/personal/John-03282.jpg": {
     "src": "/work/events/personal/John-03282.jpg",
     "width": 1920,

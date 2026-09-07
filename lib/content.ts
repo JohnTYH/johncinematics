@@ -569,12 +569,6 @@ export const collections: Collection[] = [
           src: "/work/events/personal/John-02583.jpg",
         },
         {
-          id: "john-03192",
-          category: "Personal events",
-          ratio: "portrait",
-          src: "/work/events/personal/John-03192.jpg",
-        },
-        {
           id: "john-02094",
           category: "Personal events",
           ratio: "landscape",
