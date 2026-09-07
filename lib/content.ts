@@ -262,7 +262,7 @@ export const collections: Collection[] = [
       "The people who show up for you on your wedding day are what make it unforgettable. Every joyful tear, every proud smile, every candid moment between the people who have loved you all along — so when you look back, you're reliving their day too.",
     details: {
       intro:
-        "I photograph weddings across Singapore, and most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house rather than sent out.",
+        "I photograph weddings across Singapore, and most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house.",
       specs: [
         { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days \u00b7 $175/hr" },
         { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days \u00b7 $170/hr" },
@@ -823,7 +823,7 @@ export const faqs = [
   },
   {
     q: "What is your style?",
-    a: "Clean, sharp and natural, especially for weddings, with room for something more filmic when it suits the couple's story. Colour grading is done in-house rather than outsourced.",
+    a: "Clean, sharp and natural, especially for weddings, with room for something more filmic when it suits the couple's story. Colour grading is done in-house.",
   },
 ];
 
