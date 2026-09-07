@@ -143,7 +143,7 @@ export default async function CollectionPage({ params }: Params) {
                   </svg>
                 </summary>
 
-                <div className="glass mt-5 rounded-[2rem] p-6 md:p-10">
+                <div className="details-panel glass mt-5 rounded-[2rem] p-6 md:p-10">
                   <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
                     {collection.details.intro}
                   </p>

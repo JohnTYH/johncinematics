@@ -139,6 +139,15 @@
     }
   }
 
+  /* The panel inside a <details>. Native details has no transition — it
+     flips between display:none and block — but an animation on the child
+     runs the moment it becomes displayed, so the panel fades and rises
+     while the container's own height snaps. Cheap, and it works everywhere
+     rather than depending on ::details-content support. */
+  details[open] > .details-panel {
+    animation: details-in 340ms var(--ease-out-expo) both;
+  }
+
   /* -------------------------------------------------------------
      Liquid glass
      -------------------------------------------------------------
@@ -291,6 +300,17 @@
   50%      { transform: translate(-50%, -4%) scale(1.08); }
 }
 
+@keyframes details-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes edge-spin {
   to { rotate: 1turn; }
 }
@@ -323,7 +343,8 @@
 
   .marquee-track,
   .grain::after,
-  .edge::before {
+  .edge::before,
+  details[open] > .details-panel {
     animation: none;
   }
 
