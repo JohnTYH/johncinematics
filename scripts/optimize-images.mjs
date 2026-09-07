@@ -86,7 +86,10 @@ for (const category of categories) {
 
   for (const file of (await readdir(inDir)).filter(isImage).sort()) {
     const from = path.join(inDir, file);
-    const name = path.parse(file).name;
+    /* Output names are sanitised: a master called "John-01922 2.jpg" would
+       otherwise put a space in a live URL. Masters keep whatever name you
+       gave them; only the derivatives and the manifest key are normalised. */
+    const name = path.parse(file).name.replace(/[^A-Za-z0-9._-]+/g, "-");
     /* The manifest key stays a .jpg path so content.ts reads naturally; the
        loader swaps in the width and the .webp extension at request time. */
     const key = `/work/${category}/${name}.jpg`;

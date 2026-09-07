@@ -406,6 +406,18 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBACdASoQABgAPt1cpkyopSOiMAgBEBuJYgCdAYv+tOoQ4Hv29+TIZzAAAP7nQIVPxbAQt2/aO/Tuaims2uV9Y93EUoFaxcdUmA4E5oBcYMDvWjFNdchQhI/OADCwF3ySXi4DjzW9nRf9rlkGG7Uolyffq+lD6Lcw16fbn3L+Gz65zT6i4sdS7a/vegMPHqX4oUSyKL/CtM9A3FnuZf3hbeODgnAA/5h0ivgA"
   },
+  "/work/events/personal/John-01922-2.jpg": {
+    "src": "/work/events/personal/John-01922-2.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAsAAwBSJQBdgBmfcz/+KUAA/tx13uZkaxOOioW9AZLh2cHjucW67ten452jAeWjL+2RGM1ZLJzykuuSCqDPJZiYAA=="
+  },
   "/work/events/personal/John-01922.jpg": {
     "src": "/work/events/personal/John-01922.jpg",
     "width": 1920,
@@ -477,6 +489,18 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACQBACdASoQABgAPt1apkyopSOiMAgBEBuJbACdMoRwACmVgPsbW9CZkXwq/AAA/trPTLr5St1tZ+6/Xz1pHnlXUHxWmtpkJoBbZeCEUYHCyWtJdi1o7h6ZcykhoefuD9Bg0pDfj9ssxvmgpg78QcUWU+yOM2QctrlFncK7Xd5Dx21NuPji9qzNzNC2MKlYNFQVgd3kPPwvHuaKBOy+uianC5ZKQAAA"
+  },
+  "/work/events/personal/John-02583.jpg": {
+    "src": "/work/events/personal/John-02583.jpg",
+    "width": 1920,
+    "height": 2880,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABwBACdASoQABgAPt1apkyopSOiMAgBEBuJZgCdMoR4GBK54fu341ewxhBoAAD7Z76T9gFLpJJBNXceuGdN+ZPuUFNAaIFPqS7HASmX1ibiysCIu8gNNVKFJdx6ee0EyIWLkkFmyGnZsqDnh82wvWU+evakVx5odnq/tLA6EdpTpq5FRkG+6Q66MtZSFYeT7W4Z+7Y84gAAAA=="
   },
   "/work/events/personal/John-03192.jpg": {
     "src": "/work/events/personal/John-03192.jpg",
@@ -597,6 +621,30 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoQABQAPt1apkyopSOiMAgBEBuJZQCAAAZGsNoSrIm3KLAA/oxwXcKOFVj9Hye5RmCG8kFx/v+rzk9S6PUsjbJD/NiFjiYQrB3UDswhr1C2BRy2jzlvRAVeu4jWYosZ46onNHXGbDXfCSeliJYYziLlMpJyax+vmW6gAAAA"
+  },
+  "/work/proposals/John-00218.jpg": {
+    "src": "/work/proposals/John-00218.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACwAQCdASoQAAsAAwBSJQBOgB6ohVAAAP7rJV/Dzjf24CT0ZmfmPTbZqoOJC/pLjYdNaU3xtBAgHdPPiN/XvGRah4Ryu0ZijaF4Cln4elSk+VCKFP4BZwDSGZdUAAAA"
+  },
+  "/work/proposals/John-00445.jpg": {
+    "src": "/work/proposals/John-00445.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAAwBSJYwAAy+tAj5g1A8AAPacC0DsqvuZ2WlZwKvLKdDeJ+AnODuJWkOgh8OTh0BahTNePmL7Nm8zA+9Yhj3FxBUwF5oXpv+i8ZWAoAAA"
   },
   "/work/proposals/John-03987.jpg": {
     "src": "/work/proposals/John-03987.jpg",
@@ -789,6 +837,30 @@ export const images: Record<string, GeneratedImage> = {
       1920
     ],
     "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQAAsAAwBSJQBOgMWg3nmXL1DIKADLT9s2JbBkxjNbGhRnhycGTJ+/Mz0Pr8Og06ucJEmNVZKvwlva7IVKLgEvlpCuTUyOGxnD2rsLfxFe53+ey9yxs1VoPl5Yafty/cyV6XuuXgAAAA=="
+  },
+  "/work/proposals/John-09705.jpg": {
+    "src": "/work/proposals/John-09705.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAsAAwBSJYgCdAEDfteghDetQAD2rAouOe6kQ5KU922xZPTpgpjEiHaPWU9P12f+2IAQc7cl+NXAOiiq7OwKnPHonXBseDgAPaPbQDoUWqAgLnUaHkAA"
+  },
+  "/work/proposals/John-09837.jpg": {
+    "src": "/work/proposals/John-09837.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoQAAsAAwBSJQBOiP/wLOFjd/ZJYAD+9sVsTt+vfSi1pcHcXQeyott8aDQ7d+NfMup2nFlsb9El26pLG+gR0/gAQpsCyOa4yoi7OoI2LdDXghZzP+HAgCawLFyfOc0vIAA="
   },
   "/work/proposals/John-09963-2.jpg": {
     "src": "/work/proposals/John-09963-2.jpg",
