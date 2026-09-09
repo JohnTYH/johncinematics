@@ -165,8 +165,14 @@
       rgba(255, 255, 255, 0.035) 44%,
       rgba(255, 255, 255, 0.018) 100%
     );
+    /* Unprefixed only, on purpose. Written with -webkit- underneath it,
+       the minifier collapsed the pair and kept the last one — so the
+       production build shipped a blur that only Safari could see, while
+       Chrome and Firefox got a transparent bar. Chrome does not recognise
+       -webkit-backdrop-filter at all: CSS.supports() returns false for it.
+       Lightning CSS adds whatever prefix the browser targets need, which
+       is how Tailwind's own backdrop utilities come out with both. */
     backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.09);
     box-shadow:
       /* catch-light along the top edge — the tell that sells glass */
