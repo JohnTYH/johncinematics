@@ -107,79 +107,76 @@ export default async function CollectionPage({ params }: Params) {
             </h1>
           </Reveal>
 
-          {/* Desktop hangs the pricing toggle out to the right of the copy
-              instead of stacking it underneath, which keeps the cover
-              photograph up near the title. Stacked on mobile, where there
-              is no room beside the text. */}
-          <div className="mt-5 md:flex md:items-start md:justify-between md:gap-12">
-            <div className="space-y-5 md:flex-1">
-              {collection.seoTitle && (
-                <Reveal delay={120}>
-                  <p className="text-[13px] uppercase tracking-[0.2em] text-ember">
-                    {collection.seoTitle}
+          {collection.seoTitle && (
+            <Reveal delay={120}>
+              <p className="mt-5 text-[13px] uppercase tracking-[0.2em] text-ember">
+                {collection.seoTitle}
+              </p>
+            </Reveal>
+          )}
+
+          <Reveal delay={160}>
+            <p className="mt-5 max-w-xl text-pretty text-[15px] leading-relaxed text-ash md:text-base">
+              {collection.blurb}
+            </p>
+          </Reveal>
+
+          {collection.details && (
+            <Reveal delay={200} className="mt-10 md:mt-12">
+              {/* Native <details> on purpose: everything inside stays in the
+                  HTML while collapsed, so the copy and the prices are still
+                  indexed and still quotable by answer engines. Conditional
+                  rendering would strip them from the page entirely.
+
+                  The <details> is itself the desktop grid: the toggle keeps
+                  column one, where it has always sat under the blurb, and
+                  the panel opens into column two — the empty space beside
+                  the title. Both share row one, so the panel rises next to
+                  the copy instead of hanging below the button. */}
+              <details className="group md:grid md:grid-cols-[minmax(0,1fr)_46%] md:items-start md:gap-12">
+                <summary className="glass glass-hover inline-flex cursor-pointer list-none items-center gap-2.5 rounded-full px-5 py-2.5 text-[13px] uppercase tracking-[0.15em] text-bone [&::-webkit-details-marker]:hidden md:col-start-1 md:row-start-1 md:justify-self-start">
+                  Pricing
+                  <svg
+                    viewBox="0 0 16 16"
+                    aria-hidden
+                    className="h-3.5 w-3.5 fill-none stroke-current stroke-[1.75] transition-transform duration-300 group-open:rotate-180"
+                  >
+                    <path
+                      d="M3.5 6 8 10.5 12.5 6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </summary>
+
+                {/* The lift pulls the panel up alongside the blurb. It is a
+                    margin rather than a translate so the grid row still
+                    accounts for it — the cover photograph below moves down
+                    by exactly what the panel needs and nothing overlaps.
+                    Bounded well under the gap to the title, which is never
+                    less than ~160px however short the blurb runs. */}
+                <div className="details-panel glass mt-5 rounded-[2rem] p-6 md:col-start-2 md:row-start-1 md:-mt-[7.5rem] md:p-10">
+                  <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
+                    {collection.details.intro}
                   </p>
-                </Reveal>
-              )}
 
-              <Reveal delay={160}>
-                <p className="max-w-xl text-pretty text-[15px] leading-relaxed text-ash md:text-base">
-                  {collection.blurb}
-                </p>
-              </Reveal>
-            </div>
-
-            {collection.details && (
-              /* Wide enough that the opened panel still reads as a panel
-                 rather than a narrow strip — the spec rows need room for a
-                 label and a price on one line. */
-              <Reveal
-                delay={200}
-                className="mt-10 md:mt-0 md:w-[46%] md:max-w-[620px] md:shrink-0"
-              >
-                {/* Native <details> on purpose: everything inside stays in
-                    the HTML while collapsed, so the copy and the prices are
-                    still indexed and still quotable by answer engines.
-                    Conditional rendering would strip them from the page
-                    entirely. */}
-                <details className="group md:text-right">
-                  <summary className="glass glass-hover inline-flex cursor-pointer list-none items-center gap-2.5 rounded-full px-5 py-2.5 text-[13px] uppercase tracking-[0.15em] text-bone [&::-webkit-details-marker]:hidden">
-                    Pricing
-                    <svg
-                      viewBox="0 0 16 16"
-                      aria-hidden
-                      className="h-3.5 w-3.5 fill-none stroke-current stroke-[1.75] transition-transform duration-300 group-open:rotate-180"
-                    >
-                      <path
-                        d="M3.5 6 8 10.5 12.5 6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </summary>
-
-                  <div className="details-panel glass mt-5 rounded-[2rem] p-6 text-left md:p-10">
-                    <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
-                      {collection.details.intro}
-                    </p>
-
-                    <dl className="mt-7 max-w-2xl">
-                      {collection.details.specs.map((spec) => (
-                        <div
-                          key={spec.label}
-                          className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-ink-3 py-3"
-                        >
-                          <dt className="text-[13px] uppercase tracking-[0.15em] text-ash">
-                            {spec.label}
-                          </dt>
-                          <dd className="text-[14px] text-bone">{spec.value}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </div>
-                </details>
-              </Reveal>
-            )}
-          </div>
+                  <dl className="mt-7 max-w-2xl">
+                    {collection.details.specs.map((spec) => (
+                      <div
+                        key={spec.label}
+                        className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-ink-3 py-3"
+                      >
+                        <dt className="text-[13px] uppercase tracking-[0.15em] text-ash">
+                          {spec.label}
+                        </dt>
+                        <dd className="text-[14px] text-bone">{spec.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </details>
+            </Reveal>
+          )}
 
 
           <Reveal delay={240} className="mt-10 block md:mt-12">
