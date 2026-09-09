@@ -9,7 +9,7 @@ import { faqs } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Enquire",
   description:
-    "Tell me the date, the place and roughly what you have in mind, and I'll come back with a plan and a number.",
+    "Tell me the date, the place and roughly what you have in mind. I’ll shape a plan around your vision and come back with a proposal that fits.",
   alternates: { canonical: abs("/enquire") },
 };
 
@@ -46,7 +46,7 @@ export default function EnquirePage() {
           <Reveal delay={160}>
             <p className="mt-8 max-w-lg text-pretty text-[15px] leading-relaxed text-ash md:text-base">
               A few details is all I need to check the date and come back with a
-              plan and a number. Nothing here is binding &mdash; it just saves us
+              plan tailored to you. Nothing here is binding &mdash; it just saves us
               both a round of questions.
             </p>
           </Reveal>

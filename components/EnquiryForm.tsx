@@ -26,8 +26,22 @@ function formatDate(iso: string) {
   return `${Number(d)} ${month} ${y}`;
 }
 
+/* Three distinct weights, because the form has three kinds of text in it
+   and they were reading as one: the label asks the question, the
+   placeholder shows the shape of an answer, and what you type is the
+   answer. Placeholder and label were both text-ash — the same colour — so
+   nothing looked fillable. The hint keeps ash, which is a cool grey, and
+   the label moves to bone, which is warm: they now separate by hue as
+   well as by lightness, which a plain lighter grey could not do without
+   creeping up on the typed answer and making a filled field look empty.
+
+   The underline was border-ink-3 against the panel, about 1.2:1, so the
+   fields had no visible edge at all. bone/40 measures 3.42:1, clearing the
+   3:1 WCAG asks of a control boundary (bone/35 came in at 2.96). */
+const label = "text-[13px] uppercase tracking-[0.2em] text-bone/85";
+
 const field =
-  "w-full border-b border-ink-3 bg-transparent py-3 text-[15px] text-bone outline-none transition-colors placeholder:text-ash focus:border-ember";
+  "w-full border-b border-bone/40 bg-transparent py-3 text-[15px] text-bone outline-none transition-colors placeholder:text-ash hover:border-bone/55 focus:border-ember";
 
 export default function EnquiryForm() {
   const [name, setName] = useState("");
@@ -88,8 +102,8 @@ export default function EnquiryForm() {
     <form onSubmit={handleSubmit} className="glass rounded-[2rem] p-6 md:p-10">
       <div className="grid gap-6 md:grid-cols-2 md:gap-8">
         <label className="block">
-          <span className="text-[13px] uppercase tracking-[0.2em] text-ash">
-            Your name
+          <span className={label}>
+            Your name <span className="normal-case tracking-normal">(required)</span>
           </span>
           <input
             type="text"
@@ -103,7 +117,7 @@ export default function EnquiryForm() {
         </label>
 
         <label className="block">
-          <span className="text-[13px] uppercase tracking-[0.2em] text-ash">
+          <span className={label}>
             Email <span className="normal-case tracking-normal">(optional)</span>
           </span>
           <input
@@ -117,7 +131,7 @@ export default function EnquiryForm() {
         </label>
 
         <label className="block">
-          <span className="text-[13px] uppercase tracking-[0.2em] text-ash">
+          <span className={label}>
             Date <span className="normal-case tracking-normal">(if you have one)</span>
           </span>
           <input
@@ -129,7 +143,7 @@ export default function EnquiryForm() {
         </label>
 
         <label className="block">
-          <span className="text-[13px] uppercase tracking-[0.2em] text-ash">
+          <span className={label}>
             Venue or location{" "}
             <span className="normal-case tracking-normal">(optional)</span>
           </span>
@@ -144,7 +158,7 @@ export default function EnquiryForm() {
       </div>
 
       <fieldset className="mt-10">
-        <legend className="text-[13px] uppercase tracking-[0.2em] text-ash">
+        <legend className={label}>
           What are you after?
         </legend>
 
@@ -167,7 +181,7 @@ export default function EnquiryForm() {
                   className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border transition-colors ${
                     on
                       ? "border-ember bg-ember text-ink"
-                      : "border-ink-3 text-transparent"
+                      : "border-bone/40 bg-bone/5 text-transparent"
                   }`}
                 >
                   <svg viewBox="0 0 12 12" className="h-3 w-3 fill-none stroke-current stroke-[2]">
@@ -182,7 +196,7 @@ export default function EnquiryForm() {
       </fieldset>
 
       <label className="mt-10 block">
-        <span className="text-[13px] uppercase tracking-[0.2em] text-ash">
+        <span className={label}>
           Anything else{" "}
           <span className="normal-case tracking-normal">(optional)</span>
         </span>

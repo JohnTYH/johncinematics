@@ -22,7 +22,7 @@ export default function CTA() {
 
           <p className="mx-auto mt-10 max-w-md text-[15px] leading-relaxed text-bone/60">
             Tell me the date, the place and roughly what you have in mind, and
-            I&rsquo;ll come back with a plan and a number.
+            I’ll shape a plan around your vision and come back with a proposal that fits.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
