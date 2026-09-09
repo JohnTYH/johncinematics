@@ -105,10 +105,10 @@ export default function Hero() {
                 See the work
               </Link>
               <Link
-                href="/enquire"
+                href="/about"
                 className="glass glass-hover rounded-full px-6 py-3 text-sm text-bone"
               >
-                Check availability
+                My Story
               </Link>
             </div>
           </Reveal>
