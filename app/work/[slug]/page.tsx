@@ -126,15 +126,9 @@ export default async function CollectionPage({ params }: Params) {
               {/* Native <details> on purpose: everything inside stays in the
                   HTML while collapsed, so the copy and the prices are still
                   indexed and still quotable by answer engines. Conditional
-                  rendering would strip them from the page entirely.
-
-                  The <details> is itself the desktop grid: the toggle keeps
-                  column one, where it has always sat under the blurb, and
-                  the panel opens into column two — the empty space beside
-                  the title. Both share row one, so the panel rises next to
-                  the copy instead of hanging below the button. */}
-              <details className="group md:grid md:grid-cols-[minmax(0,1fr)_46%] md:items-start md:gap-12">
-                <summary className="glass glass-hover inline-flex cursor-pointer list-none items-center gap-2.5 rounded-full px-5 py-2.5 text-[13px] uppercase tracking-[0.15em] text-bone [&::-webkit-details-marker]:hidden md:col-start-1 md:row-start-1 md:justify-self-start">
+                  rendering would strip them from the page entirely. */}
+              <details className="group">
+                <summary className="glass glass-hover inline-flex cursor-pointer list-none items-center gap-2.5 rounded-full px-5 py-2.5 text-[13px] uppercase tracking-[0.15em] text-bone [&::-webkit-details-marker]:hidden">
                   Pricing
                   <svg
                     viewBox="0 0 16 16"
@@ -149,13 +143,7 @@ export default async function CollectionPage({ params }: Params) {
                   </svg>
                 </summary>
 
-                {/* The lift pulls the panel up alongside the blurb. It is a
-                    margin rather than a translate so the grid row still
-                    accounts for it — the cover photograph below moves down
-                    by exactly what the panel needs and nothing overlaps.
-                    Bounded well under the gap to the title, which is never
-                    less than ~160px however short the blurb runs. */}
-                <div className="details-panel glass mt-5 rounded-[2rem] p-6 md:col-start-2 md:row-start-1 md:-mt-[7.5rem] md:p-10">
+                <div className="details-panel glass mt-5 rounded-[2rem] p-6 md:p-10">
                   <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
                     {collection.details.intro}
                   </p>
@@ -177,7 +165,6 @@ export default async function CollectionPage({ params }: Params) {
               </details>
             </Reveal>
           )}
-
 
           <Reveal delay={240} className="mt-10 block md:mt-12">
             <Photo
