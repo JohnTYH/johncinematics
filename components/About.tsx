@@ -44,7 +44,7 @@ export default function About() {
                   couple&rsquo;s story.
                 </p>
                 <p className="text-bone">
-                  Based in Singapore. Shooting since 2018, freelance since 2021.
+                  Based in Singapore. Shooting since 2018.
                 </p>
               </div>
             </div>

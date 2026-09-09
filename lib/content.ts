@@ -819,7 +819,7 @@ export const faqs = [
   },
   {
     q: "Where are you based?",
-    a: "Singapore. I have been shooting since 2018, picked up videography in 2019, and went full-time freelance in 2021 — working across weddings, corporate shoots, events and special projects with NUS.",
+    a: "Singapore. I have been shooting since 2018, picked up videography in 2019, and went freelance in 2021 — working across weddings, corporate shoots, events and special projects with NUS.",
   },
   {
     q: "What is your style?",
