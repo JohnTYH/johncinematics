@@ -49,7 +49,7 @@ export default function Home() {
       <Marquee items={["Stills", "Motion", "Story"]} />
       <WorkGrid />
       <Marquee
-        items={["Available 2026", "Booking now"]}
+        items={["Bookings Available"]}
         direction="right"
         duration={34}
         className="text-ash"
