@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
+import Analytics from "@/components/Analytics";
 import Footer from "@/components/Footer";
 import { SITE_NAME, SITE_URL, abs, absFile, OG_IMAGE } from "@/lib/site";
 import "./globals.css";
@@ -71,6 +72,7 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

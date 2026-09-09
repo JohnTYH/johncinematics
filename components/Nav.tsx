@@ -25,7 +25,13 @@ export default function Nav() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-5">
       {/* Floating glass pill. It only carries the glass treatment once the
           page has scrolled — over the hero it stays invisible so the
-          wordmark reads clean. */}
+          wordmark reads clean.
+
+          .glass takes all of its opacity from backdrop-filter, so on a
+          browser without it this bar goes fully transparent and the hero's
+          white "See the work" button reads straight through the wordmark.
+          The @supports fallback beside .glass in globals.css covers that
+          without tinting the bar for anyone else. */}
       <nav
         className={`relative mx-auto flex h-14 max-w-[1400px] items-center justify-between rounded-full px-4 transition-all duration-700 md:px-6 ${
           scrolled ? "glass" : "border border-transparent bg-transparent"

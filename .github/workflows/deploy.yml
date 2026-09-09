@@ -39,6 +39,9 @@ jobs:
           # of these together if you move to a custom domain — SITE_URL loses
           # the /johncinematics suffix and BASE_PATH becomes empty.
           NEXT_PUBLIC_SITE_URL: https://johntyh.github.io/johncinematics
+          # Google Analytics 4. Set only here, so local `npm run dev` sends
+          # nothing and your own browsing stays out of the reports.
+          NEXT_PUBLIC_GA_ID: G-JBFYW5ELMQ
 
       - uses: actions/configure-pages@v5
 

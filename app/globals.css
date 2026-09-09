@@ -191,6 +191,20 @@
     );
   }
 
+  /* backdrop-filter is an enhancement, never the only thing holding a
+     panel's opacity. Where it is missing these would otherwise render as
+     empty outlines with the page showing straight through. Surfaces that
+     page content scrolls beneath — the nav — carry a background of their
+     own on top of this, because Android Chrome reports support here and
+     then silently skips the blur under software rendering. */
+  @supports not (
+    (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+  ) {
+    .glass {
+      background-color: rgba(33, 33, 41, 0.9);
+    }
+  }
+
   /* -------------------------------------------------------------
      Animated edge
      -------------------------------------------------------------
