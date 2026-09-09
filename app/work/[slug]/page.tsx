@@ -143,12 +143,18 @@ export default async function CollectionPage({ params }: Params) {
                   </svg>
                 </summary>
 
-                <div className="details-panel glass mt-5 rounded-[2rem] p-6 md:p-10">
-                  <p className="max-w-3xl text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
+                {/* Half the column on desktop, so the box does not run out
+                    past its own content on a wide screen. Floored at 32rem
+                    because the longest spec row needs ~400px of inner width
+                    to keep its label and value on one line, and 50% falls
+                    under that around the md breakpoint. The panel now sets
+                    the measure, so the children no longer cap themselves. */}
+                <div className="details-panel glass mt-5 rounded-[2rem] p-6 md:w-[max(50%,38rem)] md:p-10">
+                  <p className="text-pretty text-[15px] leading-relaxed text-bone/70 md:text-base">
                     {collection.details.intro}
                   </p>
 
-                  <dl className="mt-7 max-w-2xl">
+                  <dl className="mt-7">
                     {collection.details.specs.map((spec) => (
                       <div
                         key={spec.label}
