@@ -123,13 +123,17 @@ export default async function CollectionPage({ params }: Params) {
 
           {collection.details && (
             <Reveal delay={200} className="mt-10 md:mt-12">
-              {/* Native <details> on purpose: everything inside stays in the
-                  HTML while collapsed, so the copy and the prices are still
-                  indexed and still quotable by answer engines. Conditional
-                  rendering would strip them from the page entirely. */}
+              {/* Native <details> on purpose: everything inside stays in
+                  the HTML while collapsed, so the copy is still indexed and
+                  still quotable by answer engines. Conditional rendering
+                  would strip it from the page entirely.
+
+                  Labelled for what it holds. Rates lived here until they
+                  came off the public site; a button still saying "Pricing"
+                  would now open a panel with no prices in it. */}
               <details className="group">
                 <summary className="glass glass-hover inline-flex cursor-pointer list-none items-center gap-2.5 rounded-full px-5 py-2.5 text-[13px] uppercase tracking-[0.15em] text-bone [&::-webkit-details-marker]:hidden">
-                  Pricing
+                  What&rsquo;s included
                   <svg
                     viewBox="0 0 16 16"
                     aria-hidden

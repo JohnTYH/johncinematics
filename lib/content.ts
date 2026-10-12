@@ -120,7 +120,6 @@ export const collections: Collection[] = [
         { label: "Coverage", value: "2 hours" },
         { label: "Photos", value: "~60\u201380 edited" },
         { label: "Delivery", value: "Within 10 days" },
-        { label: "From", value: "$320" },
       ],
     },
     images: [
@@ -256,7 +255,7 @@ export const collections: Collection[] = [
     slug: "weddings",
     seoTitle: "Wedding Photographer in Singapore",
     seoDescription:
-      "Wedding and ROM photography in Singapore. Half day from $175/hr, full day from $170/hr, over 200 edited photos delivered within 21 days.",
+      "Wedding and ROM photography in Singapore. Half day and full day coverage, over 200 edited photos delivered within 21 days, with a private online gallery.",
     name: "Weddings",
     blurb:
       "The people who show up for you on your wedding day are what make it unforgettable. Every joyful tear, every proud smile, every candid moment between the people who have loved you all along — so when you look back, you're reliving their day too.",
@@ -264,10 +263,10 @@ export const collections: Collection[] = [
       intro:
         "I photograph weddings across Singapore, and most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house.",
       specs: [
-        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days \u00b7 $175/hr" },
-        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days \u00b7 $170/hr" },
-        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 10 days \u00b7 $350" },
-        { label: "Add-ons", value: "Hair and makeup $160/hr \u00b7 slideshow $100 \u00b7 magazine $250" },
+        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days" },
+        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days" },
+        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 10 days" },
+        { label: "Add-ons", value: "Hair and makeup \u00b7 slideshow \u00b7 20-page magazine" },
       ],
     },
     images: [
@@ -806,7 +805,7 @@ export const heroImage: WorkItem = {
 export const faqs = [
   {
     q: "How much does a wedding photographer cost in Singapore?",
-    a: "My full day package is $170/hr for six to eight hours of coverage, and the half day is $175/hr for three to four. A ROM or proposal shoot is $350 for two hours. Every package includes editing and a private online gallery.",
+    a: "Full day coverage runs six to eight hours, half day three to four, and a ROM or proposal shoot two hours. Every package includes editing and a private online gallery. Rates depend on the date and how long you need me there, so send me your details and I'll come back with a quote.",
   },
   {
     q: "How long until we get our photos?",
@@ -818,7 +817,7 @@ export const faqs = [
   },
   {
     q: "What's included in a pre-wedding shoot?",
-    a: "A personalised moodboard and two themes over three hours for $588, or three themes over five hours for $888. You get more than 80 colour-edited photos from the three-hour shoot and more than 120 from the five-hour, plus a private online gallery.",
+    a: "A personalised moodboard and a choice of two themes over three hours, or three themes over five. You get more than 80 colour-edited photos from the three-hour shoot and more than 120 from the five-hour, plus a private online gallery.",
   },
   {
     q: "Do you shoot video as well as photography?",
@@ -826,7 +825,7 @@ export const faqs = [
   },
   {
     q: "Can you arrange hair and makeup?",
-    a: "Yes, a makeup artist can be added at $160/hr. Other add-ons include a photo slideshow at $100, a 20-page display magazine at $250, and an early morning start at $50.",
+    a: "Yes, a makeup artist can be added to any package. Other add-ons include a photo slideshow, a 20-page display magazine, and an early morning start.",
   },
   {
     q: "Where are you based?",
