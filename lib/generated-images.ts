@@ -898,6 +898,18 @@ export const images: Record<string, GeneratedImage> = {
     ],
     "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAQCdASoQAAsAAwBSJQBOgBZzc1bwzAD9mqvVUzMOlopT8+ZwhnAaa3GAE/rAa1C/WmymRcyJrASDmXFL73nYaVT3PNHiuoJKDDFKHXX2Xs2KqI10Uc/J/iBxOc4GLQAAAA=="
   },
+  "/work/weddings/John-04366-3.jpg": {
+    "src": "/work/weddings/John-04366-3.jpg",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      480,
+      960,
+      1440,
+      1920
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAsAAwBSJZwC7ADJHeIa4fgAAP7vZyZhYwgGdzYg4bY5YLdHWwx0NqblcSDCYaz0BdN4/SvFvH6RV8MIzXPnbSAH1SPcmJvdKnTDKwdbd6qynuRAAA=="
+  },
   "/work/weddings/John-04559.jpg": {
     "src": "/work/weddings/John-04559.jpg",
     "width": 1920,
