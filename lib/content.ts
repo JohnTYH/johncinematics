@@ -263,9 +263,9 @@ export const collections: Collection[] = [
       intro:
         "I photograph weddings across Singapore, and most couples book a full day \u2014 six to eight hours, morning preparations through to the last speech. A half day suits a ROM, a solemnisation, or a smaller celebration. Every package includes a private online gallery, and the colour grade is done in-house.",
       specs: [
-        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 14 days" },
-        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 21 days" },
-        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 10 days" },
+        { label: "Half day", value: "3\u20134 hours \u00b7 ~100\u2013150 photos \u00b7 delivered in 14 days" },
+        { label: "Full day", value: "6\u20138 hours \u00b7 200+ photos \u00b7 delivered in 21 days" },
+        { label: "ROM", value: "2 hours \u00b7 ~60\u201380 photos \u00b7 delivered in 10 days" },
         { label: "Add-ons", value: "Hair and makeup \u00b7 slideshow \u00b7 20-page magazine" },
       ],
     },
